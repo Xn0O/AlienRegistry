@@ -30,7 +30,7 @@ public class AudioManager : Singleton<AudioManager>
 
     void OnSceneLoaded(string sceneName)
     {
-        PlayMusic(GameManager.Instance.IsGameplay ? AudioName.BGM : AudioName.None);
+        // PlayMusic(GameManager.Instance.IsGameplay ? AudioName.BGM : AudioName.None);
     }
 
     public void PlayMusic(AudioName name)

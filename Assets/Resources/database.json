@@ -1,0 +1,202 @@
+{
+  "dialogues": {
+    "1": {
+      "dialogueId": 1,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "New here? Have a seat, don't be nervous. I'm the... temporary head of this Interstellar Assignment Bureau.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Do you know the Galaxy Human Resources Department?",
+          "choices": null
+        },
+        {
+          "type": 4,
+          "speakerName": null,
+          "text": null,
+          "choices": [
+            {
+              "text": "Know",
+              "nextNodeId": 2
+            },
+            {
+              "text": "Don't know",
+              "nextNodeId": 3
+            }
+          ]
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "2": {
+      "dialogueId": 2,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Great. Simply put, recently a group of alien 'job seekers' have flooded in. They've grown tired of their own planets and want to work in a different place.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 4
+    },
+    "3": {
+      "dialogueId": 3,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "It doesn't matter if you don't know. Anyway, they only send emails.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "In short, recently there has been a wave of alien \"job seekers\" pouring in. They've grown tired of staying on their own planets and want to work in a different place.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 4
+    },
+    "4": {
+      "dialogueId": 4,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "But the problem is, some of those extraterrestrial beings have good temperaments, some have an IQ comparable to a rock, and some...",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Well, Colleague Aichi.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Our job is to test them and then assign them to the appropriate planets.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "If everything is correct, you'll also receive a wonderful surprise gift from headquarters!",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Next, your senior colleague Wang Jiang will guide you in learning basic assignment knowledge.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "All in all, work hard, young man. Ciao~!",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "5": {
+      "dialogueId": 5,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Oh, it seems you've completed your first day of work~",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Let me take a look at your completion report.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "n super satisfied, n average, n complaints and negative reviews!",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "6": {
+      "dialogueId": 6,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "It seems you're quite perceptive!",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 10
+    },
+    "7": {
+      "dialogueId": 7,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "It seems you're very serious~",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 10
+    },
+    "8": {
+      "dialogueId": 8,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "It seems you still have something to learn~",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 10
+    },
+    "9": {
+      "dialogueId": 9,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "HR Manager",
+          "text": "Oh my god! Do you think with your toes?!",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 10
+    },
+    "10": {
+      "dialogueId": 10,
+      "lines": [
+        {
+          "type": 4,
+          "speakerName": null,
+          "text": null,
+          "choices": [
+            {
+              "text": "Hey~",
+              "nextNodeId": 0
+            },
+            {
+              "text": "As expected of me~",
+              "nextNodeId": 0
+            }
+          ]
+        }
+      ],
+      "nextDialogueId": 0
+    }
+  }
+}

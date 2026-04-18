@@ -4,6 +4,7 @@ using System.IO;
 using Game.Runtime.Core;
 using Game.Runtime.Core.Attributes;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using EventHandler = Game.Runtime.Core.EventHandler;
@@ -11,9 +12,10 @@ using EventHandler = Game.Runtime.Core.EventHandler;
 
 public class GameManager : Singleton<GameManager>
 {
-
-    [SceneName] public string firstGameScene;
     [SceneName] public string titleScene;
+    [SceneName] public string openingScene;
+    [SceneName] public string firstGameScene;
+    
     public GamePhase CurrentPhase { get; private set; }
 
     public void SetGamePhase(GamePhase newPhase)
@@ -35,6 +37,12 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void StartNewGame()
     {
+        SetGamePhase(GamePhase.GameOpening);
+        TransitionManager.Instance.TransitionTo(openingScene);
+    }
+
+    public void EnterGameScene()
+    {
         SetGamePhase(GamePhase.Gameplay);
         TransitionManager.Instance.TransitionTo(firstGameScene);
     }
@@ -50,11 +58,15 @@ public class GameManager : Singleton<GameManager>
 
 
     /// <summary>
-    /// 退出游戏
+    ///     退出游戏
     /// </summary>
     public void QuitGame()
     {
-        Application.Quit();
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 }
 

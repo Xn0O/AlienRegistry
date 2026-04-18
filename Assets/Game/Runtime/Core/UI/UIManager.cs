@@ -73,7 +73,7 @@ public class UIManager : Singleton<UIManager>
     {
         // 暂时规定类名和prefab资源名字相同！！
         // 如果系统变复杂了，需要分文件夹之类的再改成SO配置
-        string path = $"UI/{typeof(T).Name}";
+        string path = $"UIPrefabs/{typeof(T).Name}";
         GameObject prefab = Resources.Load<GameObject>(path);
 
         if (!prefab)

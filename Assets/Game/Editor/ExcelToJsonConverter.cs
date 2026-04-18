@@ -20,7 +20,7 @@ namespace Game.Editor
 
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
-            string outputPath = Application.dataPath + "/Resources/GameData/database.json";
+            string outputPath = Application.dataPath + "/Resources/database.json";
             File.WriteAllText(outputPath, json);
             Debug.Log($"成功导出到: {outputPath}");
 

@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 262276986}
   - component: {fileID: 262276985}
   m_Layer: 5
-  m_Name: Setting
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 381083109}
   - component: {fileID: 381083108}
   - component: {fileID: 381083107}
+  - component: {fileID: 381083111}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -479,6 +480,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &381083111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381083106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfac184e39b1c4157b7111dc52b774ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startGameButton: {fileID: 1623501368}
+  settingButton: {fileID: 262276985}
+  membersButton: {fileID: 0}
+  exitGameButton: {fileID: 262276985}
 --- !u!1 &644777897
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +858,7 @@ GameObject:
   - component: {fileID: 1469228493}
   - component: {fileID: 1469228492}
   m_Layer: 5
-  m_Name: LoadGame
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

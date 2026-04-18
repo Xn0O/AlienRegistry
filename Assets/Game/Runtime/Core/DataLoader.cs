@@ -25,7 +25,7 @@ namespace Game.Runtime.Core
         protected override void Awake()
         {
             base.Awake();
-            TextAsset jsonText = Resources.Load<TextAsset>("GameData/database");
+            TextAsset jsonText = Resources.Load<TextAsset>("database");
             if (jsonText == null)
             {
                 Debug.LogError("Cannot find database.json in Resources!");

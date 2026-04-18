@@ -609,7 +609,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &381083110
 RectTransform:
@@ -650,6 +650,50 @@ MonoBehaviour:
   normalRoot: {fileID: 1070608206}
   popupRoot: {fileID: 249214424}
   topRoot: {fileID: 84921255}
+--- !u!1 &624430350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624430352}
+  - component: {fileID: 624430351}
+  m_Layer: 0
+  m_Name: DataLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &624430351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624430350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e253a5341690b426c826a41ee19d18cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &624430352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624430350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641984484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537324991}
   - component: {fileID: 1537324990}
+  - component: {fileID: 1537324992}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1147,8 +1192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c95484e092a348038ba124febff0a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstGameScene: TitleScene
   titleScene: TitleScene
+  openingScene: Opening
+  firstGameScene: GameScene
 --- !u!4 &1537324991
 Transform:
   m_ObjectHideFlags: 0
@@ -1164,6 +1210,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537324992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537324989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23338c133b3444911889dfd98d55fa22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581160026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,3 +1576,4 @@ SceneRoots:
   - {fileID: 1537324991}
   - {fileID: 1289600410}
   - {fileID: 1988512324}
+  - {fileID: 624430352}
