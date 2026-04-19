@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 6968109863019937179}
   - component: {fileID: 2939294205666727787}
   - component: {fileID: 3924771335888927692}
+  - component: {fileID: 2039411915893699877}
   m_Layer: 5
   m_Name: PlanetsPanel
   m_TagString: Untagged
@@ -887,6 +888,32 @@ MonoBehaviour:
   sortByPlanetId: 0
   startIndex: 2
   closeButton: {fileID: 1787298281637140494}
+  useOpenCloseAnimation: 1
+  panelAnimator: {fileID: 2039411915893699877}
+  openTrigger: Open
+  closeTrigger: Close
+  closeAnimDuration: 0.5
+--- !u!95 &2039411915893699877
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213619911798693579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a28335348c1ec0849ae83fce2b3f16ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3404175638073433975
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,14 +972,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10588236, g: 0.10588236, b: 0.10588236, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5cb6e1b2dbc4d2a41badb7b63b3c6195, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -998,7 +1025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -179.47, y: -128}
+  m_AnchoredPosition: {x: -289, y: -172.72}
   m_SizeDelta: {x: 111.6404, y: 44.7181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1075571158317515135
@@ -1926,7 +1953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 372, y: -128}
+  m_AnchoredPosition: {x: 391.82, y: -185.36}
   m_SizeDelta: {x: 536.3484, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5327330247432495004

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Game.Runtime.Core;
 using Game.Runtime.Data;
@@ -8,27 +9,38 @@ using UnityEngine.UI;
 public class PlanetsPanel : UIPanel
 {
     [Header("卡片组的父对象")]
-    [SerializeField] private Transform cardsRoot;
+    public Transform cardsRoot;
 
-    [Header("卡片列表/可以不添加，会自动匹配")]
-    [SerializeField] private List<PlanetsCard> cards = new List<PlanetsCard>();
+    [Header("卡片列表自动匹配")]
+    public List<PlanetsCard> cards = new List<PlanetsCard>();
 
     [Header("自动匹配")]
-    [SerializeField] private bool autoFindCardsFromRoot = true;
+    public bool autoFindCardsFromRoot = true;
 
     [Header("顺序显示")]
-    [SerializeField] private bool sortByPlanetId = true;
-    [SerializeField] private int startIndex = 0;
+    public bool sortByPlanetId = true;
+    public int startIndex = 0;
 
     [Header("关闭按钮")]
-    [SerializeField] private Button closeButton;
+    public Button closeButton;
+
+    [Header("动画设置")]
+    public bool useOpenCloseAnimation = true;
+    public Animator panelAnimator;
+    public string openTrigger = "Open";
+    public string closeTrigger = "Close";
+    public float closeAnimDuration = 0.25f;
+
 
     private readonly List<PlanetData> planets = new List<PlanetData>();
     private readonly List<PlanetData> displayPlanets = new List<PlanetData>();
     private bool initialized;
     private OpenData currentOpenData;
 
-    // 同一planetsViewKey：固定的3个planetId，一个正确的planet，两个错误的planet，
+    private bool isClosing;
+    private Coroutine closeCoroutine;
+
+    // 同一planetsViewKey：固定的3个planetId，一个正确的planet，两个错误的planet
     private static readonly Dictionary<string, List<int>> planetsViewCache = new Dictionary<string, List<int>>();
 
     public class OpenData
@@ -70,6 +82,8 @@ public class PlanetsPanel : UIPanel
 
     public override void OnOpen(object data = null)
     {
+        isClosing = false;
+
         currentOpenData = data as OpenData;
         LoadPlanets();
 
@@ -83,6 +97,12 @@ public class PlanetsPanel : UIPanel
         }
 
         RefreshCards();
+
+        if (useOpenCloseAnimation && panelAnimator != null)
+        {
+            panelAnimator.ResetTrigger(closeTrigger);
+            panelAnimator.SetTrigger(openTrigger);
+        }
     }
 
     public override void OnClose()
@@ -99,7 +119,11 @@ public class PlanetsPanel : UIPanel
 
         if (closeButton != null)
             closeButton.onClick.RemoveListener(OnClickClose);
+
+        if (closeCoroutine != null)
+            StopCoroutine(closeCoroutine);
     }
+
     #region 星球显示
     // 读取数据
     private void LoadPlanets()
@@ -118,6 +142,7 @@ public class PlanetsPanel : UIPanel
         if (startIndex < 0) startIndex = 0;
         if (startIndex >= planets.Count) startIndex = 0;
     }
+
     // 顺序显示
     private void BuildSequentialDisplay()
     {
@@ -130,6 +155,7 @@ public class PlanetsPanel : UIPanel
                 displayPlanets.Add(planets[dataIndex]);
         }
     }
+
     // 随机显示，1正确2随机
     private void BuildFixedPlanetsView(int correctPlanetId, string planetsViewKey)
     {
@@ -147,14 +173,14 @@ public class PlanetsPanel : UIPanel
             ? $"correct_{correctPlanetId}"
             : planetsViewKey;
 
-        //先尝试读取记录
+        // 先尝试读取记录
         if (planetsViewCache.TryGetValue(key, out var cachedIds) && IsValidCachedIds(cachedIds, correctPlanetId))
         {
             FillDisplayByIds(cachedIds);
             return;
         }
 
-        //首次生成把顺序记录下来
+        // 首次生成把顺序记录下来
         var wrongPool = new List<PlanetData>();
         for (int i = 0; i < planets.Count; i++)
         {
@@ -164,7 +190,7 @@ public class PlanetsPanel : UIPanel
 
         if (wrongPool.Count < 2)
         {
-            Debug.LogWarning("PlanetsPanel: 星球数据不足3个”。");
+            Debug.LogWarning("PlanetsPanel: 星球数据不足3个。");
             BuildSequentialDisplay();
             return;
         }
@@ -199,7 +225,7 @@ public class PlanetsPanel : UIPanel
 
         return hasCorrect;
     }
-    
+
     private void FillDisplayByIds(List<int> ids)
     {
         displayPlanets.Clear();
@@ -243,9 +269,12 @@ public class PlanetsPanel : UIPanel
     #region 点击事件
     private void OnCardClicked(PlanetsCard card, PlanetData data)
     {
+        //判断是不是顺序显示
         bool isViewMode = currentOpenData != null && currentOpenData.correctPlanetId > 0;
+        //判断是不是正确星球
         bool isCorrect = isViewMode && data != null && data.id == currentOpenData.correctPlanetId;
 
+        
         if (isViewMode)
             Debug.Log($"点击星球: {data.name} (id={data.id})，是否正确: {isCorrect}");
         else
@@ -254,6 +283,29 @@ public class PlanetsPanel : UIPanel
 
     private void OnClickClose()
     {
+        if (isClosing) return;
+
+        // 不使用动画：立即关闭
+        if (!useOpenCloseAnimation || panelAnimator == null)
+        {
+            UIManager.Instance.Close<PlanetsPanel>();
+            return;
+        }
+
+        // 使用动画：先播动画，再关闭
+        isClosing = true;
+        panelAnimator.ResetTrigger(openTrigger);
+        panelAnimator.SetTrigger(closeTrigger);
+
+        if (closeCoroutine != null)
+            StopCoroutine(closeCoroutine);
+
+        closeCoroutine = StartCoroutine(CloseAfterDelay());
+    }
+
+    private IEnumerator CloseAfterDelay()
+    {
+        yield return new WaitForSeconds(closeAnimDuration);
         UIManager.Instance.Close<PlanetsPanel>();
     }
     #endregion
