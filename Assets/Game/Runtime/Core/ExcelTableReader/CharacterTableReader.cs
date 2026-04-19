@@ -18,6 +18,7 @@ namespace Game.Runtime.Core.ExcelTableReader
         private const int ColSpecies = 2;
         private const int ColDesc = 4;
         private const int ColHomePlanet = 5;
+        private const int CoPlanetOption = 6;
 
         // 数组字段：使用 "|" 分割
         private const int ColItemIds = 7;
@@ -64,6 +65,7 @@ namespace Game.Runtime.Core.ExcelTableReader
                     species = ExcelCellParser.GetString(row, ColSpecies),
                     description = ExcelCellParser.GetString(row, ColDesc),
                     homePlanet = ExcelCellParser.GetString(row, ColHomePlanet),
+                    planetOption = ExcelCellParser.GetIntArray(row, CoPlanetOption).ToList(),
 
                     itemIds = ExcelCellParser.GetIntArray(row, ColItemIds).ToList(),
 

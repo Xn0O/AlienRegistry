@@ -9,6 +9,7 @@ namespace Game.Runtime.Core
         public string species;
         public string description;
         public string homePlanet;
+        public List<int> planetOption;
 
         public List<int> itemIds;
         public List<string> shortQuestions;

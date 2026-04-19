@@ -166,13 +166,13 @@ public class InspectionPanel : MonoBehaviour
         // 确保起点（可选，看你是否每次都从收回状态开始）
         arm.anchoredPosition = new Vector2(armStartX, arm.anchoredPosition.y);
 
-        // 1️⃣ 伸出（机械直线）
+        // 伸出（机械直线）
         seq.Append(
             arm.DOAnchorPosX(armEndX, armMoveTime)
                 .SetEase(Ease.Linear)
         );
 
-        // 2️⃣ 到位震动
+        // 到位震动
         seq.AppendCallback(() =>
         {
             arm.DOShakeAnchorPos(
@@ -192,23 +192,9 @@ public class InspectionPanel : MonoBehaviour
         arm.DOKill();
         var seq = DOTween.Sequence();
 
-        seq.AppendCallback(() =>
-        {
-            arm.DOShakeAnchorPos(
-                0.1f,
-                new Vector2(8f, 3f),
-                15,
-                0,
-                fadeOut: false
-            );
-        });
-
+        seq.AppendCallback(() => { arm.DOShakeAnchorPos(0.1f, new Vector2(8f, 3f), 15, 0, fadeOut: false); });
         seq.AppendInterval(0.1f);
-
-        seq.Append(
-            arm.DOAnchorPosX(armStartX, armMoveTime)
-                .SetEase(Ease.Linear)
-        );
+        seq.Append(arm.DOAnchorPosX(armStartX, armMoveTime).SetEase(Ease.Linear));
     }
 
     #endregion

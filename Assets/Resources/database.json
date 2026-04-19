@@ -6,6 +6,11 @@
       "species": "Sprout",
       "description": "Plant-like sprouts grow on its antennae. Its jagged, tooth-like body serves as perfect camouflage to evade natural enemies.",
       "homePlanet": "1",
+      "planetOption": [
+        7,
+        8,
+        1
+      ],
       "itemIds": [
         1,
         2
@@ -35,6 +40,11 @@
       "species": "Inorganic",
       "description": "A Balloonian who changes color according to its emotional state.",
       "homePlanet": "2",
+      "planetOption": [
+        2,
+        6,
+        10
+      ],
       "itemIds": [
         3
       ],
@@ -63,6 +73,11 @@
       "species": "Urban Legend",
       "description": "An eerie Mothman-like entity born from urban legends on Fajnara. In truth, it belongs to the dominant species of the planet Frattwizz.",
       "homePlanet": "3",
+      "planetOption": [
+        5,
+        3,
+        9
+      ],
       "itemIds": [
         4,
         5,
@@ -93,6 +108,11 @@
       "species": "Ferro",
       "description": "A satellite signal detection model. It was once the most common robot type used in interstellar exploration.",
       "homePlanet": "4",
+      "planetOption": [
+        2,
+        4,
+        7
+      ],
       "itemIds": [
         7,
         8
@@ -122,6 +142,11 @@
       "species": "Beast",
       "description": "A cute little vine critter that loves snuggling up to furry creatures and climbing all over them.",
       "homePlanet": "5",
+      "planetOption": [
+        8,
+        10,
+        5
+      ],
       "itemIds": [
         9,
         10,

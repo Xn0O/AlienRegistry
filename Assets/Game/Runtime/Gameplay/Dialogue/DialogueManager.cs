@@ -33,7 +33,7 @@ public class DialogueManager : Singleton<DialogueManager>
         if (DataLoader.Instance.gameData.dialogues.TryGetValue(dialogueId, out var dialogueData))
         {
             currentDialogueId = dialogueId;
-            nextDialogueId =  dialogueData.nextDialogueId;
+            nextDialogueId = dialogueData.nextDialogueId;
             EventHandler.CallDialogueStartEvent(dialogueId);
             var panel = UIManager.Instance.Open<DialoguePanel>();
             panel.ShowDialogue(dialogueData.lines);
@@ -47,7 +47,7 @@ public class DialogueManager : Singleton<DialogueManager>
     public void ShowDialogueString(string text)
     {
         UIManager.Instance.Open<DialoguePanel>();
-        var line = new DialogueLine { type = DialogueType.Null, text = text };
+        var line = new DialogueLine { type = DialogueType.Black, text = text };
         var lines = new List<DialogueLine> { line };
 
         dialogueView.ShowDialogue(lines);
