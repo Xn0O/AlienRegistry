@@ -1,12 +1,10 @@
-using UnityEngine;
-
 namespace Game.Runtime.Data
 {
     public class ItemData
     {
-        public int itemId;
-        public string itemName;
-        public string itemDescription;
-        public Sprite itemIcon;
+        public int id;
+        public string name;
+        public string description;
+        public string iconName;
     }
 }

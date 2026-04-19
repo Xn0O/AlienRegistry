@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Linq;
 
 namespace Game.Runtime.Core.ExcelTableReader
 {
@@ -85,12 +86,12 @@ namespace Game.Runtime.Core.ExcelTableReader
             if (string.IsNullOrWhiteSpace(str))
                 return Array.Empty<int>();
 
-            var parts = str.Split('|');
-            var result = new int[parts.Length];
-
-            for (var i = 0; i < parts.Length; i++) result[i] = int.Parse(parts[i]);
-
-            return result;
+            return str
+                .Split('|', StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => s.Trim())
+                .Where(s => int.TryParse(s, out _))
+                .Select(int.Parse)
+                .ToArray();
         }
 
         /// <summary>
@@ -109,7 +110,10 @@ namespace Game.Runtime.Core.ExcelTableReader
             if (string.IsNullOrWhiteSpace(str))
                 return Array.Empty<string>();
 
-            return str.Split('|');
+            return str.Split('|')
+                .Select(s => s.Trim())
+                .Where(s => !string.IsNullOrEmpty(s))
+                .ToArray();
         }
     }
 }

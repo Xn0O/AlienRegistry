@@ -7,7 +7,9 @@ namespace Game.Runtime.Core.ExcelTableReader
     [Serializable]
     public class ExcelTableContext
     {
-        public Dictionary<int, DialogueData> dialogues = new Dictionary<int, DialogueData>(); 
-        public  Dictionary<int, PlanetData> planets = new Dictionary<int, PlanetData>();
+        public Dictionary<int, CharacterData> characters = new();
+        public Dictionary<int, DialogueData> dialogues = new();
+        public Dictionary<int, ItemData> items = new();
+        public Dictionary<int, PlanetData> planets = new();
     }
 }

@@ -1,4 +1,178 @@
 {
+  "characters": {
+    "1": {
+      "id": 1,
+      "name": "Groot",
+      "species": "Sprout",
+      "description": "Plant-like sprouts grow on its antennae. Its jagged, tooth-like body serves as perfect camouflage to evade natural enemies.",
+      "homePlanet": "1",
+      "planetOption": [
+        7,
+        8,
+        1
+      ],
+      "itemIds": [
+        1,
+        2
+      ],
+      "shortQuestions": [
+        "",
+        "",
+        ""
+      ],
+      "questions": [
+        "",
+        "",
+        ""
+      ],
+      "answers": [
+        "Groot_prefab_1",
+        "Groot_prefab_2",
+        "Groot_prefab_3"
+      ],
+      "portrait": "Groot_Profile",
+      "fullBody": "Groot_appearance",
+      "xray": "Groot_X"
+    },
+    "2": {
+      "id": 2,
+      "name": "BuBoom",
+      "species": "Inorganic",
+      "description": "A Balloonian who changes color according to its emotional state.",
+      "homePlanet": "2",
+      "planetOption": [
+        2,
+        6,
+        10
+      ],
+      "itemIds": [
+        3
+      ],
+      "shortQuestions": [
+        "",
+        "",
+        ""
+      ],
+      "questions": [
+        "",
+        "",
+        ""
+      ],
+      "answers": [
+        "BuBoom_prefab_1",
+        "BuBoom_prefab_2",
+        "BuBoom_prefab_3"
+      ],
+      "portrait": "BuBoom_Profile",
+      "fullBody": "BuBoom_appearance",
+      "xray": "BuBoom_X"
+    },
+    "3": {
+      "id": 3,
+      "name": "Bank",
+      "species": "Urban Legend",
+      "description": "An eerie Mothman-like entity born from urban legends on Fajnara. In truth, it belongs to the dominant species of the planet Frattwizz.",
+      "homePlanet": "3",
+      "planetOption": [
+        5,
+        3,
+        9
+      ],
+      "itemIds": [
+        4,
+        5,
+        6
+      ],
+      "shortQuestions": [
+        "",
+        "",
+        ""
+      ],
+      "questions": [
+        "",
+        "",
+        ""
+      ],
+      "answers": [
+        "Bank_prefab_1",
+        "Bank_prefab_2",
+        "Bank_prefab_3"
+      ],
+      "portrait": "Bank_Profile",
+      "fullBody": "Bank_appearance",
+      "xray": "Bank_X"
+    },
+    "4": {
+      "id": 4,
+      "name": "G-007",
+      "species": "Ferro",
+      "description": "A satellite signal detection model. It was once the most common robot type used in interstellar exploration.",
+      "homePlanet": "4",
+      "planetOption": [
+        2,
+        4,
+        7
+      ],
+      "itemIds": [
+        7,
+        8
+      ],
+      "shortQuestions": [
+        "",
+        "",
+        ""
+      ],
+      "questions": [
+        "",
+        "",
+        ""
+      ],
+      "answers": [
+        "G-007_prefab_1",
+        "G-007_prefab_2",
+        "G-007_prefab_3"
+      ],
+      "portrait": "G-007_Profile",
+      "fullBody": "G-007_appearance",
+      "xray": "G-007_X"
+    },
+    "5": {
+      "id": 5,
+      "name": "Ivy-chan",
+      "species": "Beast",
+      "description": "A cute little vine critter that loves snuggling up to furry creatures and climbing all over them.",
+      "homePlanet": "5",
+      "planetOption": [
+        8,
+        10,
+        5
+      ],
+      "itemIds": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "shortQuestions": [
+        "",
+        "",
+        ""
+      ],
+      "questions": [
+        "",
+        "",
+        ""
+      ],
+      "answers": [
+        "Ivy-chan_prefab_1",
+        "Ivy-chan_prefab_2",
+        "Ivy-chan_prefab_3"
+      ],
+      "portrait": "Ivy-chan_Profile",
+      "fullBody": "Ivy-chan_appearance",
+      "xray": "Ivy-chan_X"
+    }
+  },
   "dialogues": {
     "1": {
       "dialogueId": 1,
@@ -6,13 +180,13 @@
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "New here? Come in, take a seat. No need to be nervous. I'm the... temporary person in charge of this interstellar dispatch office.",
+          "text": "New face, huh? Come on in. Sit down, relax. No need to look so nervous. I'm the... acting manager of this Interstellar Dispatch Office for the time being.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Do you know about the Milky Way Human Resources Department?",
+          "text": "You ever heard of the Galactic HR Department?",
           "choices": null
         },
         {
@@ -39,7 +213,13 @@
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Great, to put it simply — lately there's been a huge wave of alien job seekers flooding in. They're all bored out of their minds on their home planets and want to find somewhere new to work.",
+          "text": "Great. Then I'll keep it short. We've had a flood of alien job seekers lately. Whole crowds of them.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "They're sick of their home planets, bored out of their skulls, and looking for somewhere new to work.",
           "choices": null
         }
       ],
@@ -51,13 +231,19 @@
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Not knowing is fine too. Anyway, they only send emails.",
+          "text": "No worries. Honestly, they mostly just send emails.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Long story short, a bunch of alien job seekers have been pouring in recently. They're tired of staying on their own planets and want to switch things up and find a new place to work.",
+          "text": "Long story short, alien job seekers have been pouring in lately.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "They're tired of life back home and want a fresh start. New planet, new job, same old trouble.",
           "choices": null
         }
       ],
@@ -69,43 +255,416 @@
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "The problem is, some of these alien creatures have terrible tempers, some have IQs lower than a rock, and some even...",
+          "text": "The problem is, some of them have tempers hot enough to melt steel.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Yeah, they love eating their coworkers.",
+          "text": "Some are dumb as asteroids.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Our job is to test them, then stuff them into suitable planets.",
+          "text": "And some of them... well.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "If you get everything right, you might even receive a big congratulatory bonus from headquarters~",
+          "text": "Let's just say they've eaten coworkers before.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "Next, your senior colleague Woofie will show you the basics of dispatch work.",
+          "text": "Our job is to screen them, sort them, and send them to planets where they're least likely to cause disasters.",
           "choices": null
         },
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "All in all, good luck, kiddo. Ciao~!",
+          "text": "Do it well, and headquarters might even throw a bonus your way.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Next up, your senior coworker Woofie will teach you the ropes.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "That's the rundown. Good luck, kiddo.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Try not to get eaten.Ciao~",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "16": {
+      "dialogueId": 16,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Hey there, rookie! I'm Woofie, your senior guide around here. Woof!",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "This right here is your workstation.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Any creatures needing placement will show up at the window. Woof!",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "You can check their [PROFILE] on the tablet below.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Use the tabs to switch screens and inspect whatever they're carrying in their [PACKAGE].",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 17
+    },
+    "17": {
+      "dialogueId": 17,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "These are the scanning buttons. Woof!",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Tap [SCAN] to check their external features, or [X-RAY] to get a look at their internal skeleton.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 18
+    },
+    "18": {
+      "dialogueId": 18,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Now then, a proper dispatcher also needs to ask a few simple questions.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "That's what the [ASK] button is for.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "After that, you can review their answers in the [PROFILE] tab.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Oh, and one important thing—if you haven't examined them properly first, the [ASK] button won't work. Woof!",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 19
+    },
+    "19": {
+      "dialogueId": 19,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "Once you think you've got them figured out, hit [DISPATCH] and choose the planet that suits them best.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 20
+    },
+    "20": {
+      "dialogueId": 20,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Woofie",
+          "text": "I believe in you, rookie! Woof!",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "5": {
+      "dialogueId": 5,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Oh! Looks like you survived your first day on the job.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Let me see that performance report...",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "[n] satisfied, [n] average, [n] complaints.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "6": {
+      "dialogueId": 6,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Well, well. You're sharper than you look.",
+          "choices": null
+        },
+        {
+          "type": 3,
+          "speakerName": null,
+          "text": null,
+          "choices": [
+            {
+              "text": "Heh~",
+              "nextNodeId": 11
+            },
+            {
+              "text": "Not bad, right?",
+              "nextNodeId": 11
+            }
+          ]
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "7": {
+      "dialogueId": 7,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Hm. You're taking this seriously. I like that.",
+          "choices": null
+        },
+        {
+          "type": 3,
+          "speakerName": null,
+          "text": null,
+          "choices": [
+            {
+              "text": "Heh~",
+              "nextNodeId": 12
+            },
+            {
+              "text": "Not bad, right?",
+              "nextNodeId": 12
+            }
+          ]
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "8": {
+      "dialogueId": 8,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Looks like you've still got a lot to learn.",
+          "choices": null
+        },
+        {
+          "type": 3,
+          "speakerName": null,
+          "text": null,
+          "choices": [
+            {
+              "text": "Heh~",
+              "nextNodeId": 13
+            },
+            {
+              "text": "Not bad, right?",
+              "nextNodeId": 13
+            }
+          ]
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "9": {
+      "dialogueId": 9,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Good grief. Were you making decisions with your elbows?",
+          "choices": null
+        },
+        {
+          "type": 3,
+          "speakerName": null,
+          "text": null,
+          "choices": [
+            {
+              "text": "Heh~",
+              "nextNodeId": 14
+            },
+            {
+              "text": "Not bad, right?",
+              "nextNodeId": 14
+            }
+          ]
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "11": {
+      "dialogueId": 11,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "I knew I wasn't wrong about you.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Talented inspectors are getting harder to find these days.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Keep this up, and you might even earn yourself a promotion to headquarters before long.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 15
+    },
+    "12": {
+      "dialogueId": 12,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Confidence is good. Keep that fire in you.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Just don't slack off on your training.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "And ask your senior, Woofie, plenty of questions while you can.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 15
+    },
+    "13": {
+      "dialogueId": 13,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Hah. Got jokes, huh?",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Still, for a rookie to make it this far already... not bad at all.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 15
+    },
+    "14": {
+      "dialogueId": 14,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Oh please, don't try that cute routine on me.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "I've seen every trick in the book.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Hit the books tonight, or next time I'm shipping you off to Planet Dummy.",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 15
+    },
+    "15": {
+      "dialogueId": 15,
+      "lines": [
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "Alright, that's enough for today.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Manager",
+          "text": "No matter what kind of work you do, remember to eat well, stay hydrated, and leave work on time.",
+          "choices": null
+        },
+        {
+          "type": 0,
+          "speakerName": "Managerz",
+          "text": "See you tomorrow！ Ciao~",
           "choices": null
         }
       ],
       "nextDialogueId": 0
     }
   },
+  "items": {},
   "planets": {
     "1": {
       "id": 1,
@@ -124,7 +683,7 @@
     "3": {
       "id": 3,
       "name": "Shawshank",
-      "description": "Over 80% of the planet is ocean. The only landmass hosts the galaxy’s most heavily guarded maximum-security prison.",
+      "description": "Over 80% of the planet is ocean. The only landmass hosts the galaxy's most heavily guarded maximum-security prison.",
       "planetneed": "Urgent need for 10 maintenance workers.\n“The highest bounty for an escaped prisoner is 503,333…”",
       "iconName": "Shawshank_icon"
     },
@@ -152,29 +711,29 @@
     "7": {
       "id": 7,
       "name": "Jelly",
-      "description": "The planet’s surface is covered in gelatinous material. The favorite amusement park destination for interstellar families with children.",
-      "planetneed": "Do you enjoy bouncing and jumping with kids on soft, squishy jelly? We need a “Drowning Rescue Assistant” to pull little ones out of the jelly pits, make them laugh, and keep them safe. Don’t worry about getting sticky — use your strength and keep a sweet smile! Staff get free access to all facilities.",
+      "description": "The planet's surface is covered in gelatinous material. The favorite amusement park destination for interstellar families with children.",
+      "planetneed": "Hiring a Jelly Pit Rescue Assistant. Rescue stuck kids, keep them smiling, stay cheerful. Free park access included.",
       "iconName": "Jelly_icon"
     },
     "8": {
       "id": 8,
       "name": "Cinnabar Eye",
       "description": "The atmosphere consists of hydrogen and helium. The largest gas giant in the Kartos Star System.",
-      "planetneed": "Position: Lead Scout\nDuties: Enter unexplored zones and collect resource data along with risk parameters.\nCompensation: Paid based on valid records. Management only recycles your reports — we do not guarantee returning your original body.",
+      "planetneed": "Position: Lead Scout\nDuties: Explore uncharted areas and collect resource and risk data.\nCompensation: Paid per validated report. Reports are archived only; retrieval of personnel is not guaranteed.",
       "iconName": "CinnabarEye_icon"
     },
     "9": {
       "id": 9,
       "name": "Surukan",
       "description": "A realm of serene silence. Every citizen focuses solely on themselves.",
-      "planetneed": "Position: Boundary Keeper\nDuties: Protect the personal domain boundaries of every citizen and prevent unnecessary contact or interference.\nRequirements: Fairness and timely handling.\nCompensation: Regular resource subsidies plus a private personal domain during your term of service.",
+      "planetneed": "Position: Boundary Keeper\nDuties: Protect personal boundaries\nRequirements: Fair\n",
       "iconName": "Surukan_icon"
     },
     "10": {
       "id": 10,
       "name": "Tarasus",
       "description": "An ocean of trees. Countless roots intertwine and fuse together, united as one.",
-      "planetneed": "Roots entwined with roots — though they occasionally tangle and twist. The old village chief has stiff legs and speaks slowly. We’re short a translator who can listen to both sides of the tree-root conversations.",
+      "planetneed": "Roots entwined with roots — though they occasionally tangle and twist. The old village chief has stiff legs and speaks slowly. We're short a translator who can listen to both sides of the tree-root conversations.",
       "iconName": "Tarasus_icon"
     }
   }
