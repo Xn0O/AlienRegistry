@@ -171,8 +171,10 @@ public class DialoguePanel : UIPanel
 
     private void ShowOptions(List<Choice> choices)
     {
-        HideOptions();
+        if (waitingForOption) return;
         waitingForOption = true;
+        
+        HideOptions();
         optionGroup.gameObject.SetActive(true);
         
         Debug.Log($"显示选项 共 {choices.Count} 个选项");

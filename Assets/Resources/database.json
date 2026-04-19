@@ -16,7 +16,7 @@
           "choices": null
         },
         {
-          "type": 4,
+          "type": 3,
           "speakerName": null,
           "text": null,
           "choices": [
@@ -181,7 +181,7 @@
       "dialogueId": 10,
       "lines": [
         {
-          "type": 4,
+          "type": 3,
           "speakerName": null,
           "text": null,
           "choices": [
@@ -197,6 +197,68 @@
         }
       ],
       "nextDialogueId": 0
+    }
+  },
+  "planets": {
+    "1": {
+      "id": 1,
+      "name": "Sprigara",
+      "description": "A lush world where vegetation grows with unsettling intelligence, watching every step you take.",
+      "iconName": ""
+    },
+    "2": {
+      "id": 2,
+      "name": "Tonis",
+      "description": "A bustling industrial planet powered by ambition, where every deal hides a deeper cost.",
+      "iconName": ""
+    },
+    "3": {
+      "id": 3,
+      "name": "Shawshank",
+      "description": "A water-dominated planet, with over 80% of its surface covered by ocean. Its only landmass hosts the most heavily guarded prison in the galaxy.",
+      "iconName": ""
+    },
+    "4": {
+      "id": 4,
+      "name": "Helix-9",
+      "description": "A mechanized world of endless gears and spirals, where nothing ever truly stops moving.",
+      "iconName": ""
+    },
+    "5": {
+      "id": 5,
+      "name": "Erakos",
+      "description": "A harsh desert planet ruled by ancient forces buried beneath the sands.",
+      "iconName": ""
+    },
+    "6": {
+      "id": 6,
+      "name": "Edenfall",
+      "description": "A once-perfect paradise, now fractured by a forgotten catastrophe.",
+      "iconName": ""
+    },
+    "7": {
+      "id": 7,
+      "name": "Gelora",
+      "description": "A gelatinous world where terrain shifts like liquid, swallowing anything that stands still.",
+      "iconName": ""
+    },
+    "8": {
+      "id": 8,
+      "name": "Vermilion Eye",
+      "description": "A crimson planet with a massive eye-like storm that never closes.",
+      "iconName": ""
+    },
+    "9": {
+      "id": 9,
+      "name": "Surukan",
+      "description": "A mist-covered world inhabited by elusive, possibly sentient echoes of the past.",
+      "iconName": ""
+    },
+    "10": {
+      "id": 10,
+      "name": "Talassus",
+      "description": "A deep-ocean planet where entire civilizations thrive beneath crushing pressure.",
+      "iconName": ""
     }
   }
 }

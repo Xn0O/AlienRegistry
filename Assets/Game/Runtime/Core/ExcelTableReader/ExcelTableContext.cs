@@ -8,6 +8,6 @@ namespace Game.Runtime.Core.ExcelTableReader
     public class ExcelTableContext
     {
         public Dictionary<int, DialogueData> dialogues = new Dictionary<int, DialogueData>(); 
-        // public  Dictionary<int, DialogueData> pla = new Dictionary<int, DialogueData>();
+        public  Dictionary<int, PlanetData> planets = new Dictionary<int, PlanetData>();
     }
 }

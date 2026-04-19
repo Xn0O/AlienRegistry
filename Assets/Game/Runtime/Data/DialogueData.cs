@@ -6,10 +6,9 @@ namespace Game.Runtime.Data
 {
     public enum DialogueType
     {
-        Normal, // 普通角色对话（显示立绘+对话框）
-        Double,
-        Black, // 旁白（全屏文字）
-        Null, // 无立绘、仅对话框
+        Normal, // 普通角色对话
+        Black, // 黑屏文字
+        Null, // 无说话人的旁白
         Choice // 选项
     }
 
