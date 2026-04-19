@@ -5,14 +5,14 @@
       "lines": [
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "New here? Have a seat, don't be nervous. I'm the... temporary head of this Interstellar Assignment Bureau.",
+          "speakerName": "Manager",
+          "text": "New here? Come in, take a seat. No need to be nervous. I'm the... temporary person in charge of this interstellar dispatch office.",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Do you know the Galaxy Human Resources Department?",
+          "speakerName": "Manager",
+          "text": "Do you know about the Milky Way Human Resources Department?",
           "choices": null
         },
         {
@@ -21,11 +21,11 @@
           "text": null,
           "choices": [
             {
-              "text": "Know",
+              "text": "Yes",
               "nextNodeId": 2
             },
             {
-              "text": "Don't know",
+              "text": "No",
               "nextNodeId": 3
             }
           ]
@@ -38,8 +38,8 @@
       "lines": [
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Great. Simply put, recently a group of alien 'job seekers' have flooded in. They've grown tired of their own planets and want to work in a different place.",
+          "speakerName": "Manager",
+          "text": "Great, to put it simply — lately there's been a huge wave of alien job seekers flooding in. They're all bored out of their minds on their home planets and want to find somewhere new to work.",
           "choices": null
         }
       ],
@@ -50,14 +50,14 @@
       "lines": [
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "It doesn't matter if you don't know. Anyway, they only send emails.",
+          "speakerName": "Manager",
+          "text": "Not knowing is fine too. Anyway, they only send emails.",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "In short, recently there has been a wave of alien \"job seekers\" pouring in. They've grown tired of staying on their own planets and want to work in a different place.",
+          "speakerName": "Manager",
+          "text": "Long story short, a bunch of alien job seekers have been pouring in recently. They're tired of staying on their own planets and want to switch things up and find a new place to work.",
           "choices": null
         }
       ],
@@ -68,132 +68,39 @@
       "lines": [
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "But the problem is, some of those extraterrestrial beings have good temperaments, some have an IQ comparable to a rock, and some...",
+          "speakerName": "Manager",
+          "text": "The problem is, some of these alien creatures have terrible tempers, some have IQs lower than a rock, and some even...",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Well, Colleague Aichi.",
+          "speakerName": "Manager",
+          "text": "Yeah, they love eating their coworkers.",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Our job is to test them and then assign them to the appropriate planets.",
+          "speakerName": "Manager",
+          "text": "Our job is to test them, then stuff them into suitable planets.",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "If everything is correct, you'll also receive a wonderful surprise gift from headquarters!",
+          "speakerName": "Manager",
+          "text": "If you get everything right, you might even receive a big congratulatory bonus from headquarters~",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Next, your senior colleague Wang Jiang will guide you in learning basic assignment knowledge.",
+          "speakerName": "Manager",
+          "text": "Next, your senior colleague Woofie will show you the basics of dispatch work.",
           "choices": null
         },
         {
           "type": 0,
-          "speakerName": "HR Manager",
-          "text": "All in all, work hard, young man. Ciao~!",
+          "speakerName": "Manager",
+          "text": "All in all, good luck, kiddo. Ciao~!",
           "choices": null
-        }
-      ],
-      "nextDialogueId": 0
-    },
-    "5": {
-      "dialogueId": 5,
-      "lines": [
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Oh, it seems you've completed your first day of work~",
-          "choices": null
-        },
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Let me take a look at your completion report.",
-          "choices": null
-        },
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "n super satisfied, n average, n complaints and negative reviews!",
-          "choices": null
-        }
-      ],
-      "nextDialogueId": 0
-    },
-    "6": {
-      "dialogueId": 6,
-      "lines": [
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "It seems you're quite perceptive!",
-          "choices": null
-        }
-      ],
-      "nextDialogueId": 10
-    },
-    "7": {
-      "dialogueId": 7,
-      "lines": [
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "It seems you're very serious~",
-          "choices": null
-        }
-      ],
-      "nextDialogueId": 10
-    },
-    "8": {
-      "dialogueId": 8,
-      "lines": [
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "It seems you still have something to learn~",
-          "choices": null
-        }
-      ],
-      "nextDialogueId": 10
-    },
-    "9": {
-      "dialogueId": 9,
-      "lines": [
-        {
-          "type": 0,
-          "speakerName": "HR Manager",
-          "text": "Oh my god! Do you think with your toes?!",
-          "choices": null
-        }
-      ],
-      "nextDialogueId": 10
-    },
-    "10": {
-      "dialogueId": 10,
-      "lines": [
-        {
-          "type": 3,
-          "speakerName": null,
-          "text": null,
-          "choices": [
-            {
-              "text": "Hey~",
-              "nextNodeId": 0
-            },
-            {
-              "text": "As expected of me~",
-              "nextNodeId": 0
-            }
-          ]
         }
       ],
       "nextDialogueId": 0
@@ -202,63 +109,73 @@
   "planets": {
     "1": {
       "id": 1,
-      "name": "Sprigara",
-      "description": "A lush world where vegetation grows with unsettling intelligence, watching every step you take.",
-      "iconName": ""
+      "name": "Budya",
+      "description": "An extraterrestrial paradise born from pure, innocent hearts. A world composed of harmless flora and fauna.",
+      "planetneed": "Everyone is welcome to join OVO!",
+      "iconName": "Budya_icon"
     },
     "2": {
       "id": 2,
       "name": "Tonis",
-      "description": "A bustling industrial planet powered by ambition, where every deal hides a deeper cost.",
-      "iconName": ""
+      "description": "Highly commercialized. The designated supplier for the Interstellar Alliance.",
+      "planetneed": "Hiring hair stylists. Speak with your hands, come quickly!",
+      "iconName": "Tonis_icon"
     },
     "3": {
       "id": 3,
       "name": "Shawshank",
-      "description": "A water-dominated planet, with over 80% of its surface covered by ocean. Its only landmass hosts the most heavily guarded prison in the galaxy.",
-      "iconName": ""
+      "description": "Over 80% of the planet is ocean. The only landmass hosts the galaxy’s most heavily guarded maximum-security prison.",
+      "planetneed": "Urgent need for 10 maintenance workers.\n“The highest bounty for an escaped prisoner is 503,333…”",
+      "iconName": "Shawshank_icon"
     },
     "4": {
       "id": 4,
-      "name": "Helix-9",
-      "description": "A mechanized world of endless gears and spirals, where nothing ever truly stops moving.",
-      "iconName": ""
+      "name": "Screw",
+      "description": "A collective of intelligent mechanical spirals. The entire planet has been transformed into a massive starship.",
+      "planetneed": "Hiring crew members.\nOld exploration-type robots welcome. Only the core needs to be intact.\nThe ship has ample space and no wear-and-tear issues.",
+      "iconName": "Screw_icon"
     },
     "5": {
       "id": 5,
-      "name": "Erakos",
-      "description": "A harsh desert planet ruled by ancient forces buried beneath the sands.",
-      "iconName": ""
+      "name": "Arrakis",
+      "description": "Once rich with immense energy sources, now a lawless paradise for outlaws after drying up.",
+      "planetneed": "It's a Sicilian message. It means Luca Brasi sleeps withthe fishes.Send it and you take the money.",
+      "iconName": "Arrakis_icon"
     },
     "6": {
       "id": 6,
-      "name": "Edenfall",
-      "description": "A once-perfect paradise, now fractured by a forgotten catastrophe.",
-      "iconName": ""
+      "name": "Lost Eden",
+      "description": "A garden of Eden-like bliss. If you can imagine it, you can have endless joy here.",
+      "planetneed": "Work? No, come play. Your only responsibility is to make yourself happy — and feel free to tell others how to be even happier.",
+      "iconName": "LostEden_icon"
     },
     "7": {
       "id": 7,
-      "name": "Gelora",
-      "description": "A gelatinous world where terrain shifts like liquid, swallowing anything that stands still.",
-      "iconName": ""
+      "name": "Jelly",
+      "description": "The planet’s surface is covered in gelatinous material. The favorite amusement park destination for interstellar families with children.",
+      "planetneed": "Do you enjoy bouncing and jumping with kids on soft, squishy jelly? We need a “Drowning Rescue Assistant” to pull little ones out of the jelly pits, make them laugh, and keep them safe. Don’t worry about getting sticky — use your strength and keep a sweet smile! Staff get free access to all facilities.",
+      "iconName": "Jelly_icon"
     },
     "8": {
       "id": 8,
-      "name": "Vermilion Eye",
-      "description": "A crimson planet with a massive eye-like storm that never closes.",
-      "iconName": ""
+      "name": "Cinnabar Eye",
+      "description": "The atmosphere consists of hydrogen and helium. The largest gas giant in the Kartos Star System.",
+      "planetneed": "Position: Lead Scout\nDuties: Enter unexplored zones and collect resource data along with risk parameters.\nCompensation: Paid based on valid records. Management only recycles your reports — we do not guarantee returning your original body.",
+      "iconName": "CinnabarEye_icon"
     },
     "9": {
       "id": 9,
       "name": "Surukan",
-      "description": "A mist-covered world inhabited by elusive, possibly sentient echoes of the past.",
-      "iconName": ""
+      "description": "A realm of serene silence. Every citizen focuses solely on themselves.",
+      "planetneed": "Position: Boundary Keeper\nDuties: Protect the personal domain boundaries of every citizen and prevent unnecessary contact or interference.\nRequirements: Fairness and timely handling.\nCompensation: Regular resource subsidies plus a private personal domain during your term of service.",
+      "iconName": "Surukan_icon"
     },
     "10": {
       "id": 10,
-      "name": "Talassus",
-      "description": "A deep-ocean planet where entire civilizations thrive beneath crushing pressure.",
-      "iconName": ""
+      "name": "Tarasus",
+      "description": "An ocean of trees. Countless roots intertwine and fuse together, united as one.",
+      "planetneed": "Roots entwined with roots — though they occasionally tangle and twist. The old village chief has stiff legs and speaks slowly. We’re short a translator who can listen to both sides of the tree-root conversations.",
+      "iconName": "Tarasus_icon"
     }
   }
 }

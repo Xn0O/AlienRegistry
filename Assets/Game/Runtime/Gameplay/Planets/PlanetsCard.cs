@@ -12,12 +12,13 @@ public class PlanetsCard : MonoBehaviour,
     [Header("UI引用")]
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private TextMeshProUGUI textDescription;
+    [SerializeField] private TextMeshProUGUI textNeed; 
     [SerializeField] private Image iconImage;
     [SerializeField] private Image selectPic;
 
     [Header("Icon引用")]
     [SerializeField] private Sprite defaultIcon;
-    [SerializeField] private string iconFolder = "PlanetIcons"; // iconName 为空目录前缀时会尝试 PlanetIcons/{iconName}
+    [SerializeField] private string iconFolder = "PlanetIcons";
 
     [Header("悬浮和选中颜色设置")]
     [SerializeField] private Color hoverColor = new Color(1f, 1f, 1f, 0.35f);
@@ -41,6 +42,7 @@ public class PlanetsCard : MonoBehaviour,
         {
             if (textName) textName.text = string.Empty;
             if (textDescription) textDescription.text = string.Empty;
+            if (textNeed) textNeed.text = string.Empty; 
             if (iconImage) iconImage.sprite = defaultIcon;
             HideSelectPic();
             return;
@@ -48,6 +50,7 @@ public class PlanetsCard : MonoBehaviour,
 
         if (textName) textName.text = data.name;
         if (textDescription) textDescription.text = data.description;
+        if (textNeed) textNeed.text = data.planetneed; 
         if (iconImage) iconImage.sprite = LoadIcon(data.iconName);
         HideSelectPic();
     }
@@ -57,11 +60,9 @@ public class PlanetsCard : MonoBehaviour,
         if (string.IsNullOrWhiteSpace(iconName))
             return defaultIcon;
 
-        // 先尝试直接路径
         Sprite sp = Resources.Load<Sprite>(iconName);
         if (sp != null) return sp;
 
-        // 再尝试约定目录
         sp = Resources.Load<Sprite>(iconFolder + "/" + iconName);
         if (sp != null) return sp;
 
@@ -89,7 +90,6 @@ public class PlanetsCard : MonoBehaviour,
     public void OnPointerUp(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left) return;
-
         if (pointerInside) ShowSelectPic(hoverColor);
         else HideSelectPic();
     }
@@ -98,7 +98,6 @@ public class PlanetsCard : MonoBehaviour,
     {
         if (eventData.button != PointerEventData.InputButton.Left) return;
         if (data == null) return;
-
         Clicked?.Invoke(this, data);
     }
 

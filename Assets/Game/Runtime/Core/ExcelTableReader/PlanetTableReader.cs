@@ -13,7 +13,9 @@ namespace Game.Runtime.Core.ExcelTableReader
         private const int ColID = 0;
         private const int ColName = 1;
         private const int ColDesc = 2;
-        private const int ColIcon = 3;
+        private const int ColNeed = 3;
+        private const int ColIcon = 4;
+        
 
         public void Read(DataTable table, ExcelTableContext context)
         {
@@ -36,7 +38,9 @@ namespace Game.Runtime.Core.ExcelTableReader
                     id = id,
                     name = ExcelCellParser.GetString(row, ColName),
                     description = ExcelCellParser.GetString(row, ColDesc),
+                    planetneed = ExcelCellParser.GetString(row, ColNeed),
                     iconName = ExcelCellParser.GetString(row, ColIcon),
+                    
                 };
 
                 context.planets[planet.id] = planet;
