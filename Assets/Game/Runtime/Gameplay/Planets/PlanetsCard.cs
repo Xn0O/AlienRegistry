@@ -9,18 +9,18 @@ public class PlanetsCard : MonoBehaviour,
     IPointerEnterHandler, IPointerExitHandler,
     IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
-    [Header("UI引用")]
+    [Header("UI寮曠敤")]
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private TextMeshProUGUI textDescription;
     [SerializeField] private TextMeshProUGUI textNeed; 
     [SerializeField] private Image iconImage;
     [SerializeField] private Image selectPic;
 
-    [Header("Icon引用")]
+    [Header("Icon寮曠敤")]
     [SerializeField] private Sprite defaultIcon;
     [SerializeField] private string iconFolder = "PlanetIcons";
 
-    [Header("悬浮和选中颜色设置")]
+    [Header("鎮诞鍜岄�変腑棰滆壊璁剧疆")]
     [SerializeField] private Color hoverColor = new Color(1f, 1f, 1f, 0.35f);
     [SerializeField] private Color pressedColor = new Color(0.6f, 0.9f, 1f, 0.75f);
 
