@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Game.Runtime.Data;
 using TMPro;
 using UnityEngine;
@@ -12,13 +13,13 @@ public class PlanetsCard : MonoBehaviour,
     [Header("UI引用")]
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private TextMeshProUGUI textDescription;
-    [SerializeField] private TextMeshProUGUI textNeed; 
+    [SerializeField] private TextMeshProUGUI textNeed;
     [SerializeField] private Image iconImage;
     [SerializeField] private Image selectPic;
 
     [Header("Icon引用")]
     [SerializeField] private Sprite defaultIcon;
-    [SerializeField] private string iconFolder = "PlanetIcons";
+    public Sprite[] planetSprites;
 
     [Header("悬浮和选中颜色设置")]
     [SerializeField] private Color hoverColor = new Color(1f, 1f, 1f, 0.35f);
@@ -29,9 +30,70 @@ public class PlanetsCard : MonoBehaviour,
     private PlanetData data;
     private bool pointerInside;
 
+    // 名称 -> Sprite 的运行时缓存
+    private readonly Dictionary<string, Sprite> iconDict = new Dictionary<string, Sprite>(StringComparer.Ordinal);
+    // 保证同一个缺失图标只警告一次
+    private readonly HashSet<string> missingIconWarned = new HashSet<string>(StringComparer.Ordinal);
+
     private void Awake()
     {
+        BuildIconDictionary();
         HideSelectPic();
+    }
+
+    // 构建图标字典
+    private void BuildIconDictionary()
+    {
+        iconDict.Clear();
+
+        if (planetSprites == null) return;
+
+        for (int i = 0; i < planetSprites.Length; i++)
+        {
+            var sp = planetSprites[i];
+            if (sp == null) continue;
+            if (string.IsNullOrWhiteSpace(sp.name)) continue;
+
+            if (!iconDict.ContainsKey(sp.name))
+            {
+                iconDict.Add(sp.name, sp);
+            }
+        }
+    }
+
+    // 通过图标名取图标
+    private Sprite GetIcon(string iconName)
+    {
+        if (string.IsNullOrWhiteSpace(iconName))
+            return defaultIcon;
+
+        iconName = iconName.Trim();
+
+        if (iconDict.TryGetValue(iconName, out var sp) && sp != null)
+            return sp;
+
+        // 遍历数组查找
+        if (planetSprites != null)
+        {
+            for (int i = 0; i < planetSprites.Length; i++)
+            {
+                var item = planetSprites[i];
+                if (item == null) continue;
+                if (!string.Equals(item.name, iconName, StringComparison.Ordinal)) continue;
+
+                iconDict[iconName] = item;
+                return item;
+            }
+        }
+
+        // 仅警告一次
+        if (!missingIconWarned.Contains(iconName))
+        {
+            missingIconWarned.Add(iconName);
+            Debug.LogWarning($"[PlanetsCard] 找不到星球图标: {iconName}，将使用 defaultIcon。");
+        }
+
+        return defaultIcon;
     }
 
     public void Bind(PlanetData planetData)
@@ -42,7 +104,7 @@ public class PlanetsCard : MonoBehaviour,
         {
             if (textName) textName.text = string.Empty;
             if (textDescription) textDescription.text = string.Empty;
-            if (textNeed) textNeed.text = string.Empty; 
+            if (textNeed) textNeed.text = string.Empty;
             if (iconImage) iconImage.sprite = defaultIcon;
             HideSelectPic();
             return;
@@ -50,23 +112,9 @@ public class PlanetsCard : MonoBehaviour,
 
         if (textName) textName.text = data.name;
         if (textDescription) textDescription.text = data.description;
-        if (textNeed) textNeed.text = data.planetneed; 
-        if (iconImage) iconImage.sprite = LoadIcon(data.iconName);
+        if (textNeed) textNeed.text = data.planetneed;
+        if (iconImage) iconImage.sprite = GetIcon(data.iconName);
         HideSelectPic();
-    }
-
-    private Sprite LoadIcon(string iconName)
-    {
-        if (string.IsNullOrWhiteSpace(iconName))
-            return defaultIcon;
-
-        Sprite sp = Resources.Load<Sprite>(iconName);
-        if (sp != null) return sp;
-
-        sp = Resources.Load<Sprite>(iconFolder + "/" + iconName);
-        if (sp != null) return sp;
-
-        return defaultIcon;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
