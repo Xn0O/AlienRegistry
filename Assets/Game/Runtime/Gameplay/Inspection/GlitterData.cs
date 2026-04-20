@@ -8,7 +8,4 @@ public class GliterData : MonoBehaviour
     [Header("图片缩放系数")] public float scale = 1;
 
     [Header("闪光点表述")] [TextArea] public string glitterDescription;
-
-    [Header("目标图片空间")] public Image targetImage;
-    [Header("文字描述控件")] public TMP_Text targetDesc;
 }
