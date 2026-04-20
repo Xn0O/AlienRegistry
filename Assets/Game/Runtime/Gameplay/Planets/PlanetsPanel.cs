@@ -27,6 +27,11 @@ public class PlanetsPanel : UIPanel
     public string closeTrigger = "Close";
     public float closeAnimDuration = 0.2f;
 
+    [Header("音效设置")]
+    public bool usePanelSfx = true;
+    public string closeButtonClickSfx = "quit";
+    public string judgeLockSfx = "click_dispatch";
+
     private readonly List<PlanetData> planets = new List<PlanetData>();
     private readonly List<PlanetData> displayPlanets = new List<PlanetData>();
 
@@ -267,6 +272,9 @@ public class PlanetsPanel : UIPanel
             // TriggerWrong();   // 由外界处理
         }
 
+        // 点击后（锁定）播放音效
+        PlayPanelSfx(judgeLockSfx);
+
         // 判定后锁定卡片
         hasJudged = true;
         LockCardsAfterJudge(card);
@@ -298,12 +306,12 @@ public class PlanetsPanel : UIPanel
 
             if (c == selectedCard)
             {
-                c.SetLockedSelected(true);     // 仅已点击卡片保持高亮
+                c.SetLockedSelected(true);      // 仅已点击卡片保持高亮
                 c.SetInteractionEnabled(false); // 禁止交互避免状态变化
             }
             else
             {
-                c.SetLockedSelected(false);    // 其它卡片不显示 selectPic
+                c.SetLockedSelected(false);     // 其它卡片不显示 selectPic
                 c.SetInteractionEnabled(false); // 禁止移入显示
             }
         }
@@ -325,6 +333,9 @@ public class PlanetsPanel : UIPanel
     private void OnClickClose()
     {
         if (isClosing) return;
+
+        // 点击退出按钮，播放音效
+        PlayPanelSfx(closeButtonClickSfx);
 
         // 不使用动画：立即关闭
         if (!useOpenCloseAnimation || panelAnimator == null)
@@ -348,6 +359,18 @@ public class PlanetsPanel : UIPanel
     {
         yield return new WaitForSeconds(closeAnimDuration);
         UIManager.Instance.Close<PlanetsPanel>();
+    }
+    #endregion
+
+    #region 音效方法
+    // 统一音效播放入口，避免空引用/空名字
+    private void PlayPanelSfx(string sfxName)
+    {
+        if (!usePanelSfx) return;
+        if (string.IsNullOrWhiteSpace(sfxName)) return;
+        if (AudioManager.Instance == null) return;
+
+        AudioManager.Instance.PlaySfx(sfxName);
     }
     #endregion
 }
