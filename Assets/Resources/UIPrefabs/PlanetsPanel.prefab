@@ -531,6 +531,9 @@ MonoBehaviour:
   openTrigger: Open
   closeTrigger: Close
   closeAnimDuration: 0.5
+  usePanelSfx: 0
+  closeButtonClickSfx: quit
+  judgeLockSfx: click_dispatch
 --- !u!95 &2039411915893699877
 Animator:
   serializedVersion: 5

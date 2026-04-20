@@ -29,8 +29,14 @@ public class PlanetsCard : MonoBehaviour,
 
     private PlanetData data;
     private bool pointerInside;
+    private bool pointerDown; // 是否仍在按住鼠标左键
 
-    // 名称 -> Sprite 的运行时缓存
+    // 是否允许交互
+    private bool interactionEnabled = true;
+    // 是否为选中卡片
+    private bool lockedSelected = false;
+
+    // 缓存图标
     private readonly Dictionary<string, Sprite> iconDict = new Dictionary<string, Sprite>(StringComparer.Ordinal);
     // 保证同一个缺失图标只警告一次
     private readonly HashSet<string> missingIconWarned = new HashSet<string>(StringComparer.Ordinal);
@@ -39,6 +45,38 @@ public class PlanetsCard : MonoBehaviour,
     {
         BuildIconDictionary();
         HideSelectPic();
+    }
+
+    private void OnDisable()
+    {
+        // 防止面板隐藏后残留按下状态
+        pointerInside = false;
+        pointerDown = false;
+        HideSelectPic();
+    }
+
+    // 面板控制卡片可交互状态
+    public void SetInteractionEnabled(bool enabled)
+    {
+        interactionEnabled = enabled;
+
+        if (!interactionEnabled && !lockedSelected)
+        {
+            pointerInside = false;
+            pointerDown = false;
+            HideSelectPic();
+        }
+    }
+
+    // 面板锁定状态
+    public void SetLockedSelected(bool selected)
+    {
+        lockedSelected = selected;
+        pointerInside = false;
+        pointerDown = false;
+
+        if (lockedSelected) ShowSelectPic(pressedColor);
+        else HideSelectPic();
     }
 
     // 构建图标字典
@@ -86,7 +124,7 @@ public class PlanetsCard : MonoBehaviour,
             }
         }
 
-        // 仅警告一次
+        // 只警告一次
         if (!missingIconWarned.Contains(iconName))
         {
             missingIconWarned.Add(iconName);
@@ -99,6 +137,10 @@ public class PlanetsCard : MonoBehaviour,
     public void Bind(PlanetData planetData)
     {
         data = planetData;
+
+        // 每次绑定重置锁状态
+        interactionEnabled = true;
+        lockedSelected = false;
 
         if (data == null)
         {
@@ -119,31 +161,47 @@ public class PlanetsCard : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!interactionEnabled) return;
+
         pointerInside = true;
-        ShowSelectPic(hoverColor);
+
+        // 按住状态下回到卡片仍显示按下色，松开后才回 Hover
+        if (pointerDown) ShowSelectPic(pressedColor);
+        else ShowSelectPic(hoverColor);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (!interactionEnabled) return;
+
         pointerInside = false;
         HideSelectPic();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!interactionEnabled) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        pointerDown = true;
         ShowSelectPic(pressedColor);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (!interactionEnabled) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        // 只有松开后才切回 HoverColor
+        pointerDown = false;
+
         if (pointerInside) ShowSelectPic(hoverColor);
         else HideSelectPic();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!interactionEnabled) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
         if (data == null) return;
         Clicked?.Invoke(this, data);
