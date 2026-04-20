@@ -62,6 +62,7 @@ public class DialoguePanel : UIPanel
         }
         else
         {
+            AudioManager.Instance.PlaySfx("click");
             // 停止协程并直接显示完整文字
             StopCoroutine(typingCoroutine);
             typingFinished = true;
