@@ -10,6 +10,7 @@ public class TitleSceneManager : MonoBehaviour
     public Button settingButton;
     public Button membersButton;
     public Button exitGameButton;
+    public GameObject members;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class TitleSceneManager : MonoBehaviour
             membersButton.onClick.AddListener(() =>
             {
                 AudioManager.Instance.PlaySfx("click");
+                members.SetActive(true);
             });
     }
 }

@@ -127,10 +127,11 @@ Shader "Custom/URP_JarvisEffect2D"
                 // --- 2. 动态色差采样 (Chromatic Aberration) ---
                 // 分别采样 R, G, B 三个通道。R 和 B 通道分别向左和右偏移。
                 half redSample = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex,
-                                    glitchedUV + float2(-_ChromaticAberration * 0.015, 0.0)).r;
+                                                  glitchedUV + float2(-_ChromaticAberration * 0.015, 0.0)).r;
                 half greenSample = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, glitchedUV).g;
                 half blueSample = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex,
-                glitchedUV + float2(_ChromaticAberration * 0.015, 0.0)).b;
+                                                                 glitchedUV + float2(_ChromaticAberration * 0.015, 0.0))
+.b;
                 half alphaSample = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, glitchedUV).a;
 
                 // 将分离出的彩色样本合成颜色。
@@ -170,4 +171,5 @@ Shader "Custom/URP_JarvisEffect2D"
             ENDHLSL
         }
     }
+    Fallback "UI/Default"
 }

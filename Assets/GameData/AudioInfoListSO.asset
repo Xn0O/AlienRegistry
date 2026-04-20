@@ -63,15 +63,15 @@ MonoBehaviour:
     loop: 0
   - audioName: click_glitter
     clip: {fileID: 8300000, guid: 904d20167d0c1d5428433290e928dd74, type: 3}
-    volume: 0
+    volume: 1
     loop: 0
   - audioName: click_package
     clip: {fileID: 8300000, guid: 508502c379a39a04f92b02d8388bb485, type: 3}
-    volume: 0
+    volume: 1
     loop: 0
   - audioName: click_planet
     clip: {fileID: 8300000, guid: e909bd1a7c5257743838d78585d54a7c, type: 3}
-    volume: 0
+    volume: 1
     loop: 0
   - audioName: sure
     clip: {fileID: 8300000, guid: f9870fd72f60f1c449ec142346406494, type: 3}
