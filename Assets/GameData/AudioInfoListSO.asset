@@ -13,6 +13,62 @@ MonoBehaviour:
   m_Name: AudioInfoListSO
   m_EditorClassIdentifier: 
   audioInfos:
+  - audioName: starting
+    clip: {fileID: 8300000, guid: 2b6b9702271c15445847d13d07dbff3f, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: opening
+    clip: {fileID: 8300000, guid: f0e4fd61bdab0424683e89f52d694aff, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: "gaming\uFF08guidance\uFF09"
+    clip: {fileID: 8300000, guid: 64b50c58cf9acc344844932e03ef5250, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: ending
+    clip: {fileID: 8300000, guid: f6cfeb3246a4bdf48b480de122a5d5c7, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - audioName: 0
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - audioName: 0
     clip: {fileID: 0}
     volume: 0
