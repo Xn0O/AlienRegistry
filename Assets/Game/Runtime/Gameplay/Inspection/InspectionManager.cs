@@ -71,6 +71,8 @@ public class InspectionManager : MonoBehaviour
         clickedGlitterPoints.Clear();
         viewedItemIds.Clear();
         hasViewedXray = false;
+        hasViewitems = false;
+        hasViewedGlitters = false;
 
         inspectionPanel.ResetQuestionTexts();
     }
