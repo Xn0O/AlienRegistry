@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using DG.Tweening;
+using Game.Runtime.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,8 @@ public class InspectionPanel : MonoBehaviour
     [Header("Scan Panel")] [SerializeField]
     private GameObject scanPanel;
 
+    [SerializeField] private GlitterView glitterView;
+
     [Header("Character Images")] [SerializeField]
     private Image fullBodyImage; // 角色全身像(扫描窗口)
 
@@ -35,6 +38,9 @@ public class InspectionPanel : MonoBehaviour
     [Header("Question List")] [SerializeField]
     private GameObject questionList;
 
+    [SerializeField] private GameObject questionBubble;
+    [SerializeField] private TMP_Text questionBubbleText;
+
     [SerializeField] private Button q1Button;
     [SerializeField] private Button q2Button;
     [SerializeField] private Button q3Button;
@@ -47,6 +53,7 @@ public class InspectionPanel : MonoBehaviour
     [HideInInspector] public Image portraitImage;
 
     private GameObject currentGlitterEffect;
+    private CharacterData currentData;
 
     private void Awake()
     {
@@ -71,30 +78,111 @@ public class InspectionPanel : MonoBehaviour
         scanButton.onClick.AddListener(OnClickScan);
         xrayButton.onClick.AddListener(OnClickXray);
 
-        q1Button.onClick.AddListener(() => OnClickQuestionItem(1));
-        q2Button.onClick.AddListener(() => OnClickQuestionItem(2));
-        q3Button.onClick.AddListener(() => OnClickQuestionItem(3));
+        q1Button.onClick.AddListener(() => OnClickQuestionItem(0));
+        q2Button.onClick.AddListener(() => OnClickQuestionItem(1));
+        q3Button.onClick.AddListener(() => OnClickQuestionItem(2));
     }
 
     #region ScanScreen
 
-    public void UpdateScreenImage(Sprite pSprite, Sprite fSprite, Sprite xSprite, string glitterPrefabName)
+    public void UpdateScreenImage(Sprite pSprite, Sprite fSprite, Sprite xSprite, CharacterData data)
     {
+        currentData = data;
         portraitImage.sprite = pSprite;
         fullBodyImage.sprite = fSprite;
         xrayImage.sprite = xSprite;
+        portraitImage.SetNativeSize();
+        fullBodyImage.SetNativeSize();
+        xrayImage.SetNativeSize();
 
         //初始状态：只显示全身图，隐藏X光和闪光点
         fullBodyImage.gameObject.SetActive(true);
         xrayImage.gameObject.SetActive(false);
 
         if (currentGlitterEffect != null) Destroy(currentGlitterEffect);
-        var prefab = Resources.Load<GameObject>($"ScanPrefabs/{glitterPrefabName}");
+        var prefab = Resources.Load<GameObject>($"ScanPrefabs/{data.glitterPrefab}");
         if (prefab != null)
         {
             currentGlitterEffect = Instantiate(prefab, fullBodyImage.transform);
             currentGlitterEffect.SetActive(false);
         }
+    }
+
+    #endregion
+
+
+    #region Button Callbacks
+
+    private void OnClickSettings()
+    {
+        UIManager.Instance.Open<SettingsPanel>(true);
+    }
+
+    private void OnClickDispatch()
+    {
+        Debug.Log("Dispatch Clicked/ Open PlanetPanel");
+        UIManager.Instance.Open<PlanetsPanel>(new PlanetsPanel.OpenData() { characterId = currentData.id });
+    }
+
+    private bool showQList;
+
+    private void OnClickAsk()
+    {
+        showQList = !showQList;
+        // questionList.transform.localScale = showQList ? Vector3.one : Vector3.zero;
+    }
+
+    private void OnClickScan()
+    {
+        Debug.Log("Scan Clicked");
+        fullBodyImage.gameObject.SetActive(true);
+        xrayImage.gameObject.SetActive(false);
+        if (currentGlitterEffect != null) currentGlitterEffect.SetActive(true);
+    }
+
+    private void OnClickXray()
+    {
+        Debug.Log("Xray Clicked");
+        fullBodyImage.gameObject.SetActive(false);
+        xrayImage.gameObject.SetActive(true);
+        InspectionManager.Instance.RegisterXrayView();
+    }
+
+    private void OnClickQuestionItem(int index)
+    {
+        if ((index == 0 && InspectionManager.Instance.hasViewedGlitters) ||
+            (index == 1 && InspectionManager.Instance.hasViewedXray) ||
+            (index == 2 && InspectionManager.Instance.hasViewitems))
+
+        {
+            questionBubble.SetActive(true);
+            questionBubbleText.text = currentData.questions[index];
+        }
+    }
+
+    #endregion
+
+    #region Question
+
+    public void ResetQuestionTexts()
+    {
+        q1Text.text = "???";
+        q2Text.text = "???";
+        q3Text.text = "???";
+        questionBubble.SetActive(false);
+        // questionList.transform.localScale = Vector3.zero; //TODO:改为显示小横条
+    }
+
+    public void SetQuestionText(int index, string content)
+    {
+        switch (index)
+        {
+            case 0: q1Text.text = content; break;
+            case 1: q2Text.text = content; break;
+            case 2: q3Text.text = content; break;
+        }
+        // 可在这里播一个解锁的音效或特效
+        // 需要更新小红点
     }
 
     #endregion
@@ -105,7 +193,10 @@ public class InspectionPanel : MonoBehaviour
     {
         portrait.DOKill();
 
+
         var x = isExit ? exitX : centerX;
+        var startX = isExit ? centerX : enterX;
+        portrait.anchoredPosition = new Vector2(startX, portrait.anchoredPosition.y);
         var seq = DOTween.Sequence();
 
         var stepDuration = 0.5f;
@@ -177,7 +268,7 @@ public class InspectionPanel : MonoBehaviour
     }
 
 
-    private readonly float armEndX = 680f;
+    private readonly float armEndX = 710f;
     private readonly float armMoveTime = 1f;
     private readonly float armShakeTime = 0.25f;
     private readonly float armStartX = 1200f;
@@ -219,74 +310,6 @@ public class InspectionPanel : MonoBehaviour
         seq.Append(arm.DOAnchorPosX(armStartX, armMoveTime).SetEase(Ease.Linear));
         seq.SetLink(arm.gameObject);
         await seq.Play().AsyncWaitForCompletion();
-    }
-
-    #endregion
-
-    #region Button Callbacks
-
-    private void OnClickSettings()
-    {
-        UIManager.Instance.Open<SettingsPanel>(true);
-    }
-
-    private void OnClickDispatch()
-    {
-        Debug.Log("Dispatch Clicked/ Open PlanetPanel");
-        // UIManager.Instance.Open<PlanetsPanel>(new PlanetsPanel.OpenData())
-    }
-
-    private bool showQList;
-
-    private void OnClickAsk()
-    {
-        showQList = !showQList;
-        questionList.transform.localScale = showQList ? Vector3.one : Vector3.zero;
-    }
-
-    private void OnClickScan()
-    {
-        Debug.Log("Scan Clicked");
-        fullBodyImage.gameObject.SetActive(true);
-        xrayImage.gameObject.SetActive(false);
-        if (currentGlitterEffect != null) currentGlitterEffect.SetActive(true);
-    }
-
-    private void OnClickXray()
-    {
-        Debug.Log("Xray Clicked");
-        fullBodyImage.gameObject.SetActive(false);
-        xrayImage.gameObject.SetActive(true);
-        InspectionManager.Instance.RegisterXrayView();
-    }
-
-    private void OnClickQuestionItem(int index)
-    {
-        Debug.Log($"Question {index} Clicked");
-    }
-
-    #endregion
-
-    #region Question
-
-    public void ResetQuestionTexts()
-    {
-        q1Text.text = "???";
-        q2Text.text = "???";
-        q3Text.text = "???";
-        questionList.transform.localScale = Vector3.zero; //TODO:改为显示小横条
-    }
-
-    public void SetQuestionText(int index, string content)
-    {
-        switch (index)
-        {
-            case 0: q1Text.text = content; break;
-            case 1: q2Text.text = content; break;
-            case 2: q3Text.text = content; break;
-        }
-        // 可在这里播一个解锁的音效或特效
-        // 需要更新小红点
     }
 
     #endregion

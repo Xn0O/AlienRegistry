@@ -15,7 +15,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     // private bool finished;
     private GamePhase lastPhase;
-    private Action onFinishedAction;
+    public Action onFinishedAction;
 
     private void Start()
     {

@@ -17,34 +17,34 @@ namespace Game.Runtime.Core.ExcelTableReader
         private const int ColID = 0;
         private const int ColName = 1;
         private const int ColSpecies = 2;
-        private const int ColDesc = 4;
-        private const int ColHomePlanet = 5;
-        private const int CoPlanetOption = 6;
+        private const int ColDesc = 3;
+        private const int ColHomePlanet = 4;
+        private const int CoPlanetOption = 5;
 
         // 数组字段：使用 "|" 分割
-        private const int ColItemIds = 7;
+        private const int ColItemIds = 6;
 
         // 跨列字段：Question 1-3
-        private const int ColQuestion1 = 8;
-        private const int ColQuestion2 = 11;
-        private const int ColQuestion3 = 14;
+        private const int ColQuestion1 = 7;
+        private const int ColQuestion2 = 10;
+        private const int ColQuestion3 = 13;
 
         // 跨列字段：关键字 1-3
-        private const int ColsQuestion1 = 9;
-        private const int ColsQuestion2 = 12;
-        private const int ColsQuestion3 = 15;
+        private const int ColsQuestion1 = 8;
+        private const int ColsQuestion2 = 11;
+        private const int ColsQuestion3 = 14;
 
         // 跨列字段：Answer 1-3
-        private const int ColAnswer1 = 10;
-        private const int ColAnswer2 = 13;
-        private const int ColAnswer3 = 16;
+        private const int ColAnswer1 = 9;
+        private const int ColAnswer2 = 12;
+        private const int ColAnswer3 = 15;
 
         // 资源字段
-        private const int ColGlitterPrefab = 17;
-        private const int ColProfile = 21;
-        private const int ColPortrait = 22;
-        private const int ColFullBody = 23;
-        private const int ColXray = 24;
+        private const int ColGlitterPrefab = 16;
+        private const int ColProfile = 17;
+        private const int ColPortrait = 18;
+        private const int ColFullBody = 19;
+        private const int ColXray = 20;
 
         public void Read(DataTable table, ExcelTableContext context)
         {

@@ -11,10 +11,12 @@ public class GlitterView : MonoBehaviour
     public Button CloseButton;
     public float duration = 0.3f;
 
-    private int currentId = -1;
     private Tween currentTween;
 
     private RectTransform rect;
+    private RectTransform portraitRect;
+    private GlitterData currentData;
+    private bool isOpen;
 
     private void Awake()
     {
@@ -37,43 +39,44 @@ public class GlitterView : MonoBehaviour
     private void Start()
     {
         rect.anchoredPosition = new Vector2(0, rect.anchoredPosition.y);
-        gameObject.SetActive(false);
+        isOpen = false;
     }
 
     /// <summary>
     ///     点击某个点
     /// </summary>
-    public void Show(int id, Sprite sprite, string desc)
+    public void Show(Sprite sprite, GlitterData data)
     {
-        // 👉 如果点的是同一个，直接无视
-        if (currentId == id && gameObject.activeSelf)
+        //如果点的是同一个，直接无视
+        if (currentData == data)
         {
             return;
         }
 
-        currentId = id;
+        currentData = data;
 
-        // 👉 如果当前已经打开，先收再开
-        if (gameObject.activeSelf)
+        // 如果当前已经打开，先收再开
+        if (isOpen)
         {
             Hide(() =>
             {
-                SetContent(sprite, desc);
+                SetContent(sprite, data);
                 PlayShow();
             });
         }
         else
         {
-            gameObject.SetActive(true);
-            SetContent(sprite, desc);
+            SetContent(sprite, data);
             PlayShow();
         }
     }
 
-    private void SetContent(Sprite sprite, string desc)
+    private void SetContent(Sprite sprite, GlitterData data)
     {
         glitterPortrait.sprite = sprite;
-        glitterDesc.text = desc;
+        glitterPortrait.rectTransform.anchoredPosition = data.appearancePosition;
+        glitterPortrait.rectTransform.localScale = Vector2.one * data.scale;
+        glitterDesc.text = data.glitterDescription;
     }
 
     private void PlayShow()
@@ -84,6 +87,9 @@ public class GlitterView : MonoBehaviour
 
         currentTween = rect.DOAnchorPosX(-400f, duration)
             .SetEase(Ease.OutCubic);
+
+        CloseButton.gameObject.SetActive(true);
+        isOpen = true;
     }
 
     /// <summary>
@@ -91,7 +97,8 @@ public class GlitterView : MonoBehaviour
     /// </summary>
     public void OnClickClose()
     {
-        currentId = -1;
+        isOpen = false;
+        currentData = null;
         Hide();
     }
 
@@ -103,7 +110,7 @@ public class GlitterView : MonoBehaviour
             .SetEase(Ease.InCubic)
             .OnComplete(() =>
             {
-                gameObject.SetActive(false);
+                isOpen = false;
                 onComplete?.Invoke();
             });
     }

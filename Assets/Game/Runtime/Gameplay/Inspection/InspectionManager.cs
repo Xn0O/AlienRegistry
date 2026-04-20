@@ -17,13 +17,14 @@ public class InspectionManager : MonoBehaviour
         3,
         4,
         5
-    }; // 假设这是你要检查的5个人ID
+    }; // 检查的5个人ID
 
     public int correctCount; // 正确发配的数量
 
     [Header("UI Parts")] public InspectionPanel inspectionPanel;
     public PadPanel padPanel;
     public PackageView packageView;
+    public GlitterView glitterView;
     public PlanetsPanel dispatchPanel; //星球面板
 
     //解锁状态追踪
@@ -31,9 +32,9 @@ public class InspectionManager : MonoBehaviour
     private readonly HashSet<int> viewedItemIds = new(); // 记录点过的道具ID
 
     private CharacterData currentData;
-    private bool hasViewedGlitters;
-    private bool hasViewedXray; // 是否看过了X光
-    private bool hasViewitems;
+    public bool hasViewedGlitters { get; private set; }
+    public bool hasViewedXray { get; private set; } // 是否看过了X光
+    public bool hasViewitems { get; private set; }
 
     private void Awake()
     {
@@ -74,19 +75,21 @@ public class InspectionManager : MonoBehaviour
         inspectionPanel.ResetQuestionTexts();
     }
 
+    private Sprite pSprite;
+
     private async Task UpdateCharacterDisplay(CharacterData data)
     {
         // 加载图片
-        Sprite avater = Resources.Load<Sprite>($"Character/{data.profile}");
-        Sprite pSprite = Resources.Load<Sprite>($"Character/{data.portrait}");
+        Sprite avatar = Resources.Load<Sprite>($"Character/{data.profile}");
+        pSprite = Resources.Load<Sprite>($"Character/{data.portrait}");
         Sprite fSprite = Resources.Load<Sprite>($"Character/{data.fullBody}");
         Sprite xSprite = Resources.Load<Sprite>($"Character/{data.xray}");
 
         // 刷新扫描窗口
-        inspectionPanel.UpdateScreenImage(pSprite, fSprite, xSprite, data.glitterPrefab);
+        inspectionPanel.UpdateScreenImage(pSprite, fSprite, xSprite, data);
 
         // 刷新 PadPanel 角色信息
-        padPanel.UpdateProfileData(data.name, data.species, avater, data.description);
+        padPanel.UpdateProfileData(data.name, data.species, avatar, data.description);
 
         // 刷新背包数据
         packageView.RefreshView(data);
@@ -106,8 +109,6 @@ public class InspectionManager : MonoBehaviour
     {
         if (DataLoader.Instance.gameData.planets.TryGetValue(planetId, out PlanetData planet))
         {
-            Debug.Log($"你把 {currentData.name} 发配到了 {planet.name}");
-
             // 逻辑判定：是否发配回了正确星球
             if (planet.id == currentData.homePlanet)
             {
@@ -119,12 +120,13 @@ public class InspectionManager : MonoBehaviour
                 Debug.Log("发配错误...");
             }
 
+            DialogueManager.Instance.ShowDialogueString($"You have dispatched {currentData.name} to {planet.name}.");
             // 执行离场并进入下一轮
-            NextRoundSequenceAsync();
+            DialogueManager.Instance.onFinishedAction += () => { _ = NextRoundSequenceAsync(); };
         }
     }
 
-    private async void NextRoundSequenceAsync()
+    private async Task NextRoundSequenceAsync()
     {
         // 1. 同时开启两个动画，但不立即 await 它们
         // 这会让机械臂收回和角色走开【同时开始】
@@ -156,10 +158,31 @@ public class InspectionManager : MonoBehaviour
         // UIManager.Instance.Open<ResultPanel>(score);
     }
 
+    #region 星球
+
+    private void OnEnable()
+    {
+        PlanetsPanel.AddJudgeResultListener(OnPlanetJudged);
+    }
+
+    private void OnDisable()
+    {
+        PlanetsPanel.RemoveJudgeResultListener(OnPlanetJudged);
+    }
+
+    private void OnPlanetJudged(bool isSuccess, int planetId)
+    {
+        Debug.Log($"接收到判定结果: {isSuccess}, 星球ID是: {planetId}");
+        OnDispatchCallback(planetId);
+    }
+
+    #endregion
+
     #region 条件触发方法
 
-    public void OnGlitterClicked(int index)
+    public void OnGlitterClicked(int index, GlitterData data)
     {
+        glitterView.Show(pSprite, data);
         if (hasViewedGlitters)
         {
             return;
@@ -173,7 +196,7 @@ public class InspectionManager : MonoBehaviour
         }
     }
 
-    // 2. X光查看 (由 InspectionPanel.OnClickXray 调用)
+    // X光查看 (由 InspectionPanel.OnClickXray 调用)
     public void RegisterXrayView()
     {
         if (!hasViewedXray)
@@ -183,7 +206,7 @@ public class InspectionManager : MonoBehaviour
         }
     }
 
-    // 3. 道具查看 (由 PackageView 在点击 Slot 时调用)
+    // 道具查看 (由 PackageView 在点击 Slot 时调用)
     public void OnItemViewed(int itemId)
     {
         if (hasViewitems)

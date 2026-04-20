@@ -8,27 +8,21 @@ using UnityEngine.UI;
 
 public class PlanetsPanel : UIPanel
 {
-    [Header("卡片组的父对象")]
-    public Transform cardsRoot;
+    [Header("卡片组的父对象")] public Transform cardsRoot;
 
-    [Header("卡片列表手动匹配")]
-    public List<PlanetsCard> cards = new List<PlanetsCard>();
+    [Header("卡片列表手动匹配")] public List<PlanetsCard> cards = new List<PlanetsCard>();
 
-    [Header("卡片列表自动匹配")]
-    public bool autoFindCardsFromRoot = true;
+    [Header("卡片列表自动匹配")] public bool autoFindCardsFromRoot = true;
 
-    [Header("关闭按钮")]
-    public Button closeButton;
+    [Header("关闭按钮")] public Button closeButton;
 
-    [Header("动画设置")]
-    public bool useOpenCloseAnimation = true;
+    [Header("动画设置")] public bool useOpenCloseAnimation = true;
     public Animator panelAnimator;
     public string openTrigger = "Open";
     public string closeTrigger = "Close";
     public float closeAnimDuration = 0.2f;
 
-    [Header("音效设置")]
-    public bool usePanelSfx = true;
+    [Header("音效设置")] public bool usePanelSfx = true;
     public string closeButtonClickSfx = "quit";
     public string judgeLockSfx = "click_dispatch";
 
@@ -51,6 +45,7 @@ public class PlanetsPanel : UIPanel
     }
 
     #region 对外判定事件与接口
+
     // 对外广播判定结果
     //参数a=是否正确，参数b=点击的星球ID
     public static event Action<bool, int> OnPlanetJudgeResult;
@@ -66,6 +61,7 @@ public class PlanetsPanel : UIPanel
     {
         OnPlanetJudgeResult -= listener;
     }
+
     #endregion
 
     public override void OnInit()
@@ -143,6 +139,7 @@ public class PlanetsPanel : UIPanel
     }
 
     #region 星球显示
+
     // 读取数据
     private void LoadPlanets()
     {
@@ -171,7 +168,8 @@ public class PlanetsPanel : UIPanel
             return false;
         }
 
-        if (!int.TryParse(Convert.ToString(character.homePlanet), out resolvedCorrectPlanetId) || resolvedCorrectPlanetId <= 0)
+        if (!int.TryParse(Convert.ToString(character.homePlanet), out resolvedCorrectPlanetId) ||
+            resolvedCorrectPlanetId <= 0)
         {
             Debug.LogWarning($"PlanetsPanel: characterId={characterId} 的 homePlanet 无效。");
             return false;
@@ -242,11 +240,14 @@ public class PlanetsPanel : UIPanel
         {
             if (planets[i].id == id) return planets[i];
         }
+
         return null;
     }
+
     #endregion
 
     #region 点击事件
+
     private void OnCardClicked(PlanetsCard card, PlanetData data)
     {
         // 面板只允许判定一次
@@ -281,6 +282,7 @@ public class PlanetsPanel : UIPanel
 
         // 向外广播判定结果，外界据此处理计分或关卡流程，会传递点击是否正确和星球id
         OnPlanetJudgeResult?.Invoke(isCorrect, data.id);
+        OnClickClose();
     }
 
     // 重置判定状态
@@ -306,18 +308,19 @@ public class PlanetsPanel : UIPanel
 
             if (c == selectedCard)
             {
-                c.SetLockedSelected(true);      // 仅已点击卡片保持高亮
+                c.SetLockedSelected(true); // 仅已点击卡片保持高亮
                 c.SetInteractionEnabled(false); // 禁止交互避免状态变化
             }
             else
             {
-                c.SetLockedSelected(false);     // 其它卡片不显示 selectPic
+                c.SetLockedSelected(false); // 其它卡片不显示 selectPic
                 c.SetInteractionEnabled(false); // 禁止移入显示
             }
         }
     }
 
     #region 判定处理
+
     // 传入外界参数进行相关判定处理，可由外界处理
     // private void TriggerCorrect()
     // {
@@ -328,6 +331,7 @@ public class PlanetsPanel : UIPanel
     // {
     //     // TODO: 错误逻辑
     // }
+
     #endregion
 
     private void OnClickClose()
@@ -360,9 +364,11 @@ public class PlanetsPanel : UIPanel
         yield return new WaitForSeconds(closeAnimDuration);
         UIManager.Instance.Close<PlanetsPanel>();
     }
+
     #endregion
 
     #region 音效方法
+
     // 统一音效播放入口，避免空引用/空名字
     private void PlayPanelSfx(string sfxName)
     {
@@ -372,5 +378,6 @@ public class PlanetsPanel : UIPanel
 
         AudioManager.Instance.PlaySfx(sfxName);
     }
+
     #endregion
 }
