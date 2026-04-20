@@ -13,7 +13,143 @@ MonoBehaviour:
   m_Name: AudioInfoListSO
   m_EditorClassIdentifier: 
   audioInfos:
-  - audioName: 0
-    clip: {fileID: 0}
+  - audioName: starting
+    clip: {fileID: 8300000, guid: 2b6b9702271c15445847d13d07dbff3f, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: opening
+    clip: {fileID: 8300000, guid: f0e4fd61bdab0424683e89f52d694aff, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: "gaming\uFF08guidance\uFF09"
+    clip: {fileID: 8300000, guid: 64b50c58cf9acc344844932e03ef5250, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: ending
+    clip: {fileID: 8300000, guid: f6cfeb3246a4bdf48b480de122a5d5c7, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: loading
+    clip: {fileID: 8300000, guid: cd6c0939124fa0a44850e184215461c5, type: 3}
     volume: 0
     loop: 0
+  - audioName: M_open
+    clip: {fileID: 8300000, guid: b715df3c28b4c5c49a246b4af5294bca, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click
+    clip: {fileID: 8300000, guid: 1b477d76fd654574681b8c1ffc27e74e, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: scan
+    clip: {fileID: 8300000, guid: 9a6daeeb81a723344ba20391f8ffd765, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: quit
+    clip: {fileID: 8300000, guid: 0bbbd45f715155a409afefc72653c8c1, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click_buttom
+    clip: {fileID: 8300000, guid: b5abb181d4a46ee489b389f5b8e11260, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click_dispatch
+    clip: {fileID: 8300000, guid: c6e1b284207c620429ce53ffa7d6a443, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click_choose
+    clip: {fileID: 8300000, guid: 3e766ac8692074e40b0d5878a5e9a224, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click_glitter
+    clip: {fileID: 8300000, guid: 904d20167d0c1d5428433290e928dd74, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click_package
+    clip: {fileID: 8300000, guid: 508502c379a39a04f92b02d8388bb485, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: click_planet
+    clip: {fileID: 8300000, guid: e909bd1a7c5257743838d78585d54a7c, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: sure
+    clip: {fileID: 8300000, guid: f9870fd72f60f1c449ec142346406494, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: switch
+    clip: {fileID: 8300000, guid: c2f3deda0500e7c439717eddd19705fa, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 1_1
+    clip: {fileID: 8300000, guid: 005d9164773c327488f5522f1e41e2e5, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 1_2
+    clip: {fileID: 8300000, guid: 45dc2fdc800586341b0d04452d9f42c2, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 1_3
+    clip: {fileID: 8300000, guid: bf616e1ac066ab844a43ee32e98ebbad, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: 2_1
+    clip: {fileID: 8300000, guid: c3be4960894249048809239ff50a9664, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 2_2
+    clip: {fileID: 8300000, guid: e2621d2e22f91b141a4cfdac38eeb143, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 2_3
+    clip: {fileID: 8300000, guid: bb9f69d6914839f48a4288dc2c2eab61, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 3_1
+    clip: {fileID: 8300000, guid: 4fe8887118f7bbc468b4b0c550ba45e2, type: 3}
+    volume: 0
+    loop: 1
+  - audioName: 3_2
+    clip: {fileID: 8300000, guid: 03d1e0c026df2f14a94ac02e556de241, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 3_3
+    clip: {fileID: 8300000, guid: 4ccf2a68fb6dc5642bc4370cc1a02bf2, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 4_1
+    clip: {fileID: 8300000, guid: e9f25331ba0d6e64b941c36f79bc9fbe, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 4_2
+    clip: {fileID: 8300000, guid: 4aaa7ba289dde3f498f5538b1883506b, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 4_3
+    clip: {fileID: 8300000, guid: cff6240530d85714383cb32fa8bad419, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 5_1
+    clip: {fileID: 8300000, guid: f8858212f31943642bdef2f61675f647, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 5_2
+    clip: {fileID: 8300000, guid: bcb8a98a11954bc49a274a107e7c4cb2, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 5_3
+    clip: {fileID: 8300000, guid: f46d43a3808bcb34c8be0b47ad212c0d, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 6_1
+    clip: {fileID: 8300000, guid: ae587177050e21340bc8934f0ffaa683, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 6_2
+    clip: {fileID: 8300000, guid: 516527820c51161459d262b88034ef72, type: 3}
+    volume: 0
+    loop: 0
+  - audioName: 6_3
+    clip: {fileID: 8300000, guid: 2e8f924a256a0834c895ac96a03e732f, type: 3}
+    volume: 0
+    loop: 1
