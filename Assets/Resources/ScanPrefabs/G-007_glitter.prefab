@@ -27,16 +27,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2259397793899425647}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0050663105, w: 0.99998724}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1868110295064753127}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.581}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 182}
+  m_AnchoredPosition: {x: -27, y: 220}
   m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337082428270916885
@@ -51,9 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f5c557a5fcf4c128db592c140f43f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearancePosition: {x: 0, y: 0}
+  appearancePosition: {x: 10, y: -406}
   scale: 1
-  glitterDescription: 
+  glitterDescription: Equipped with an advanced intelligence module that has already
+    passed the Turing Test.
   targetImage: {fileID: 0}
   targetDesc: {fileID: 0}
 --- !u!222 &742489831978650336
@@ -174,7 +175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 182}
+  m_AnchoredPosition: {x: 126, y: -119}
   m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4710676644237612611
@@ -189,9 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f5c557a5fcf4c128db592c140f43f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearancePosition: {x: 0, y: 0}
-  scale: 0
-  glitterDescription: 
+  appearancePosition: {x: -78, y: 93}
+  scale: 0.6
+  glitterDescription: It has powerful, thick mechanical arms with immense strength.
   targetImage: {fileID: 0}
   targetDesc: {fileID: 0}
 --- !u!222 &7623020315868876280
@@ -312,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 182}
+  m_AnchoredPosition: {x: -50, y: 114}
   m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8373155491518366707
@@ -327,9 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f5c557a5fcf4c128db592c140f43f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearancePosition: {x: 0, y: 0}
-  scale: 0
-  glitterDescription: 
+  appearancePosition: {x: 0, y: -51}
+  scale: 0.4
+  glitterDescription: A display screen on its chest can output text.
   targetImage: {fileID: 0}
   targetDesc: {fileID: 0}
 --- !u!222 &5771813870265310475
@@ -469,7 +470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8657244336093173306}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

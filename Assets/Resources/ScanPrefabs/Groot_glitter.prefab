@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 182}
+  m_AnchoredPosition: {x: -64, y: 185}
   m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337082428270916885
@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f5c557a5fcf4c128db592c140f43f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearancePosition: {x: 0, y: 0}
-  scale: 0.8
-  glitterDescription: 
+  appearancePosition: {x: -58, y: -180}
+  scale: 0.7
+  glitterDescription: The pale green sprout is, in truth, its true form.
   targetImage: {fileID: 0}
   targetDesc: {fileID: 0}
 --- !u!222 &742489831978650336
@@ -174,7 +174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 182}
+  m_AnchoredPosition: {x: 54, y: -154}
   m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4710676644237612611
@@ -189,9 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f5c557a5fcf4c128db592c140f43f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearancePosition: {x: 0, y: 0}
-  scale: 0
-  glitterDescription: 
+  appearancePosition: {x: -55, y: 236}
+  scale: 0.7
+  glitterDescription: Its soft little feet are enough to carry it in quick hops and
+    light sprints.
   targetImage: {fileID: 0}
   targetDesc: {fileID: 0}
 --- !u!222 &7623020315868876280
@@ -312,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 182}
+  m_AnchoredPosition: {x: 68, y: 19}
   m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8373155491518366707
@@ -327,9 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f5c557a5fcf4c128db592c140f43f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearancePosition: {x: 0, y: 0}
-  scale: 0
-  glitterDescription: 
+  appearancePosition: {x: -42, y: -19}
+  scale: 0.5
+  glitterDescription: The dark markings aren't actually eyes.
   targetImage: {fileID: 0}
   targetDesc: {fileID: 0}
 --- !u!222 &5771813870265310475
@@ -431,7 +432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1868110295064753127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8657244336093173306}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

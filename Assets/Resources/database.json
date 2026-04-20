@@ -5,7 +5,7 @@
       "name": "Groot",
       "species": "Sprout",
       "description": "Plant-like sprouts grow on its antennae. Its jagged, tooth-like body serves as perfect camouflage to evade natural enemies.",
-      "homePlanet": "1",
+      "homePlanet": 1,
       "planetOption": [
         7,
         8,
@@ -15,15 +15,15 @@
         1,
         2
       ],
-      "shortQuestions": [
-        "",
-        "",
-        ""
-      ],
       "questions": [
-        "",
-        "",
-        ""
+        "Are those black dots on your body your eyes?",
+        "What is the purpose of the small bud on the head?",
+        "What are the kettle and the soil for?"
+      ],
+      "shortQuestions": [
+        "eyes",
+        "Sprout",
+        "Water bottle and soil"
       ],
       "answers": [
         "Groot_prefab_1",
@@ -31,8 +31,9 @@
         "Groot_prefab_3"
       ],
       "glitterPrefab": "Groot_glitter",
-      "portrait": "Groot_Profile",
-      "fullBody": "Groot_appearance",
+      "profile": "Groot_Profile",
+      "portrait": "Groot_appearance",
+      "fullBody": "Groot_S",
       "xray": "Groot_X"
     },
     "2": {
@@ -40,7 +41,7 @@
       "name": "BuBoom",
       "species": "Inorganic",
       "description": "A Balloonian who changes color according to its emotional state.",
-      "homePlanet": "2",
+      "homePlanet": 2,
       "planetOption": [
         2,
         6,
@@ -49,15 +50,15 @@
       "itemIds": [
         3
       ],
-      "shortQuestions": [
-        "",
-        "",
-        ""
-      ],
       "questions": [
-        "",
-        "",
-        ""
+        "Is that strange fur on your head actually hair?",
+        "Is your heart protruding more than other Balloon People’s—is that natural?",
+        "Is the air pump part of your tableware?"
+      ],
+      "shortQuestions": [
+        "Hair",
+        "Heart",
+        "Air pump"
       ],
       "answers": [
         "BuBoom_prefab_1",
@@ -65,8 +66,9 @@
         "BuBoom_prefab_3"
       ],
       "glitterPrefab": "BuBoom_glitter",
-      "portrait": "BuBoom_Profile",
-      "fullBody": "BuBoom_appearance",
+      "profile": "BuBoom_Profile",
+      "portrait": "BuBoom_appearance",
+      "fullBody": "BuBoom_S",
       "xray": "BuBoom_X"
     },
     "3": {
@@ -74,7 +76,7 @@
       "name": "Bank",
       "species": "Urban Legend",
       "description": "An eerie Mothman-like entity born from urban legends on Fajnara. In truth, it belongs to the dominant species of the planet Frattwizz.",
-      "homePlanet": "3",
+      "homePlanet": 3,
       "planetOption": [
         5,
         3,
@@ -85,15 +87,15 @@
         5,
         6
       ],
-      "shortQuestions": [
-        "",
-        "",
-        ""
-      ],
       "questions": [
-        "",
-        "",
-        ""
+        "Where did those red marks on your feet come from?",
+        "How did you get the gunshot wound?",
+        "Are you a Christian?"
+      ],
+      "shortQuestions": [
+        "Ankle",
+        "Shrapnel",
+        "Cross"
       ],
       "answers": [
         "Bank_prefab_1",
@@ -101,8 +103,9 @@
         "Bank_prefab_3"
       ],
       "glitterPrefab": "Bank_glitter",
-      "portrait": "Bank_Profile",
-      "fullBody": "Bank_appearance",
+      "profile": "Bank_Profile",
+      "portrait": "Bank_appearance",
+      "fullBody": "Bank_S",
       "xray": "Bank_X"
     },
     "4": {
@@ -110,7 +113,7 @@
       "name": "G-007",
       "species": "Ferro",
       "description": "A satellite signal detection model. It was once the most common robot type used in interstellar exploration.",
-      "homePlanet": "4",
+      "homePlanet": 4,
       "planetOption": [
         2,
         4,
@@ -120,15 +123,15 @@
         7,
         8
       ],
-      "shortQuestions": [
-        "",
-        "",
-        ""
-      ],
       "questions": [
-        "",
-        "",
-        ""
+        "Are you sure you can communicate with your coworkers?",
+        "Can you still work?",
+        "Are you looking for a home?"
+      ],
+      "shortQuestions": [
+        "Garbage characters",
+        "Wires",
+        "ID badge"
       ],
       "answers": [
         "G-007_prefab_1",
@@ -136,8 +139,9 @@
         "G-007_prefab_3"
       ],
       "glitterPrefab": "G-007_glitter",
-      "portrait": "G-007_Profile",
-      "fullBody": "G-007_appearance",
+      "profile": "G-007_Profile",
+      "portrait": "G-007_appearance",
+      "fullBody": "G-007_S",
       "xray": "G-007_X"
     },
     "5": {
@@ -145,7 +149,7 @@
       "name": "Ivy-chan",
       "species": "Beast",
       "description": "A cute little vine critter that loves snuggling up to furry creatures and climbing all over them.",
-      "homePlanet": "5",
+      "homePlanet": 5,
       "planetOption": [
         8,
         10,
@@ -157,15 +161,15 @@
         11,
         12
       ],
-      "shortQuestions": [
-        "",
-        "",
-        ""
-      ],
       "questions": [
-        "",
-        "",
-        ""
+        "Are those lines your face?",
+        "Why are there so many bone fragments in your body?",
+        "Why do you carry so many... collectibles?"
+      ],
+      "shortQuestions": [
+        "Facial features",
+        "Bone fragments",
+        "Residues"
       ],
       "answers": [
         "Ivy-chan_prefab_1",
@@ -173,8 +177,9 @@
         "Ivy-chan_prefab_3"
       ],
       "glitterPrefab": "Ivy-chan_glitter",
-      "portrait": "Ivy-chan_Profile",
-      "fullBody": "Ivy-chan_appearance",
+      "profile": "Ivy-chan_Profile",
+      "portrait": "Ivy-chan_appearance",
+      "fullBody": "Ivy-chan_S",
       "xray": "Ivy-chan_X"
     }
   },
@@ -392,7 +397,7 @@
         {
           "type": 0,
           "speakerName": "Woofie",
-          "text": "Oh, and one important thing—if you haven't examined them properly first, the [ASK] button won't work. Woof!",
+          "text": "Oh, and one important thing-if you haven't examined them properly first, the [ASK] button won't work. Woof!",
           "choices": null
         }
       ],
@@ -776,14 +781,14 @@
       "id": 5,
       "name": "Arrakis",
       "description": "Once rich with immense energy sources, now a lawless paradise for outlaws after drying up.",
-      "planetneed": "It's a Sicilian message. It means Luca Brasi sleeps withthe fishes.Send it and you take the money.",
+      "planetneed": "It's a Sicilian message. It means Luca Brasi sleeps with the fishes.Send it and you take the money.",
       "iconName": "Arrakis_icon"
     },
     "6": {
       "id": 6,
       "name": "Lost Eden",
       "description": "A garden of Eden-like bliss. If you can imagine it, you can have endless joy here.",
-      "planetneed": "Work? No, come play. Your only responsibility is to make yourself happy — and feel free to tell others how to be even happier.",
+      "planetneed": "Work? No, come play. Your only responsibility is to make yourself happy -- and feel free to tell others how to be even happier.",
       "iconName": "LostEden_icon"
     },
     "7": {
@@ -811,7 +816,7 @@
       "id": 10,
       "name": "Tarasus",
       "description": "An ocean of trees. Countless roots intertwine and fuse together, united as one.",
-      "planetneed": "Roots entwined with roots — though they occasionally tangle and twist. The old village chief has stiff legs and speaks slowly. We're short a translator who can listen to both sides of the tree-root conversations.",
+      "planetneed": "Roots entwined with roots - though they occasionally tangle and twist. The old village chief has stiff legs and speaks slowly. We're short a translator who can listen to both sides of the tree-root conversations.",
       "iconName": "Tarasus_icon"
     }
   }

@@ -1,9 +1,10 @@
+using Game.Runtime.Core.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq; // 用于 Array 转 List
-using Game.Runtime.Core.Attributes;
-using Game.Runtime.Data;
+using System.Linq;
+
+// 用于 Array 转 List
 
 namespace Game.Runtime.Core.ExcelTableReader
 {
@@ -40,26 +41,31 @@ namespace Game.Runtime.Core.ExcelTableReader
 
         // 资源字段
         private const int ColGlitterPrefab = 17;
-        private const int ColPortrait = 21;
-        private const int ColFullBody = 22;
-        private const int ColXray = 23;
+        private const int ColProfile = 21;
+        private const int ColPortrait = 22;
+        private const int ColFullBody = 23;
+        private const int ColXray = 24;
 
         public void Read(DataTable table, ExcelTableContext context)
         {
-            for (var i = DataStartRow; i < table.Rows.Count; i++)
+            for (int i = DataStartRow; i < table.Rows.Count; i++)
             {
-                var row = table.Rows[i];
+                DataRow row = table.Rows[i];
 
                 // 跳过空行（通常以 ID 列是否为空为准）
                 if (ExcelCellParser.IsEmpty(row, ColID))
+                {
                     continue;
+                }
 
-                var id = ExcelCellParser.GetInt(row, ColID);
+                int id = ExcelCellParser.GetInt(row, ColID);
 
                 if (context.characters.ContainsKey(id))
+                {
                     throw new Exception($"角色数据重复 character_id={id}");
+                }
 
-                var character = new CharacterData()
+                CharacterData character = new()
                 {
                     id = id,
                     name = ExcelCellParser.GetString(row, ColName),
@@ -67,31 +73,29 @@ namespace Game.Runtime.Core.ExcelTableReader
                     description = ExcelCellParser.GetString(row, ColDesc),
                     homePlanet = ExcelCellParser.GetInt(row, ColHomePlanet),
                     planetOption = ExcelCellParser.GetIntArray(row, CoPlanetOption).ToList(),
-
                     itemIds = ExcelCellParser.GetIntArray(row, ColItemIds).ToList(),
-
-                    questions = new List<string>
-                    {
-                        ExcelCellParser.GetString(row, ColQuestion1),
-                        ExcelCellParser.GetString(row, ColQuestion2),
-                        ExcelCellParser.GetString(row, ColQuestion3)
-                    },
-
-                    shortQuestions = new List<string>
-                    {
-                        ExcelCellParser.GetString(row, ColsQuestion1),
-                        ExcelCellParser.GetString(row, ColsQuestion2),
-                        ExcelCellParser.GetString(row, ColsQuestion3)
-                    },
-
+                    questions =
+                        new List<string>
+                        {
+                            ExcelCellParser.GetString(row, ColQuestion1),
+                            ExcelCellParser.GetString(row, ColQuestion2),
+                            ExcelCellParser.GetString(row, ColQuestion3)
+                        },
+                    shortQuestions =
+                        new List<string>
+                        {
+                            ExcelCellParser.GetString(row, ColsQuestion1),
+                            ExcelCellParser.GetString(row, ColsQuestion2),
+                            ExcelCellParser.GetString(row, ColsQuestion3)
+                        },
                     answers = new List<string>
                     {
                         ExcelCellParser.GetString(row, ColAnswer1),
                         ExcelCellParser.GetString(row, ColAnswer2),
                         ExcelCellParser.GetString(row, ColAnswer3)
                     },
-
                     glitterPrefab = ExcelCellParser.GetString(row, ColGlitterPrefab),
+                    profile = ExcelCellParser.GetString(row, ColProfile),
                     portrait = ExcelCellParser.GetString(row, ColPortrait),
                     fullBody = ExcelCellParser.GetString(row, ColFullBody),
                     xray = ExcelCellParser.GetString(row, ColXray)
