@@ -92,6 +92,7 @@ public class PadPanel : MonoBehaviour
         if (speciesLabel != null) speciesLabel.text = "Species: " + pSpecies;
         if (avatarImage != null) avatarImage.sprite = pAvatar;
         if (desText != null) desText.text = pDesc;
+        packageView.OnSlotSelected(0);
     }
 
     private void OnProfileToggleChange(bool isOn)
