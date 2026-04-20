@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4331893082236761034}
   m_Layer: 5
-  m_Name: Groot_prefab_3 1
+  m_Name: Bank_prefab_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4331893082236761034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74,8 +74,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1109, y: -545}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1233, y: -228}
+  m_SizeDelta: {x: 125.14, y: 69.509995}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3621693893871397100
 MonoBehaviour:
@@ -189,10 +189,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2099355329011889921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 62.57, y: -34.754997}
+  m_SizeDelta: {x: 85.14, y: 49.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4070818891593661784
 CanvasRenderer:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ovo
+  m_text: Hmph.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6afcacb6206c84faf8e67707d2a115a1, type: 2}
   m_sharedMaterial: {fileID: 3278446751124379594, guid: 6afcacb6206c84faf8e67707d2a115a1, type: 2}
@@ -350,16 +350,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6612209897805137460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7713156, w: 0.636453}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2099355329011889921}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 100.944}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32, y: 25}
+  m_AnchoredPosition: {x: -21, y: -53}
   m_SizeDelta: {x: 50, y: 99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5590119461418576232
