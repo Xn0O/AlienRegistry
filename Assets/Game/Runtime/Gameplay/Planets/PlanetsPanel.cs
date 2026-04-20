@@ -47,7 +47,7 @@ public class PlanetsPanel : UIPanel
     #region 对外判定事件与接口
 
     // 对外广播判定结果
-    //参数a=是否正确，参数b=点击的星球ID
+    // 参数a=是否正确，参数b=点击的星球ID
     public static event Action<bool, int> OnPlanetJudgeResult;
 
     // 外界订阅接口
@@ -282,7 +282,9 @@ public class PlanetsPanel : UIPanel
 
         // 向外广播判定结果，外界据此处理计分或关卡流程，会传递点击是否正确和星球id
         OnPlanetJudgeResult?.Invoke(isCorrect, data.id);
-        OnClickClose();
+
+        // 自动关闭：不播放“关闭按钮音效”
+        ClosePanel(false);
     }
 
     // 重置判定状态
@@ -336,10 +338,16 @@ public class PlanetsPanel : UIPanel
 
     private void OnClickClose()
     {
+        // 手动点击关闭按钮：播放关闭按钮音效
+        ClosePanel(true);
+    }
+
+    private void ClosePanel(bool playCloseButtonSfx)
+    {
         if (isClosing) return;
 
-        // 点击退出按钮，播放音效
-        PlayPanelSfx(closeButtonClickSfx);
+        if (playCloseButtonSfx)
+            PlayPanelSfx(closeButtonClickSfx);
 
         // 不使用动画：立即关闭
         if (!useOpenCloseAnimation || panelAnimator == null)
