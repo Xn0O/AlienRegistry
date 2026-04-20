@@ -23,7 +23,7 @@
       "shortQuestions": [
         "Eyes",
         "Sprout",
-        "Water bottle and soil"
+        "Kettle and soil"
       ],
       "answers": [
         "Groot_prefab_1",
@@ -445,7 +445,7 @@
         {
           "type": 0,
           "speakerName": "Manager",
-          "text": "[n] satisfied, [n] average, [n] complaints.",
+          "text": "Your dispatches have disappointed them[ n ]times and satisfied them[ n ]times!",
           "choices": null
         }
       ],
@@ -668,6 +668,102 @@
           "type": 0,
           "speakerName": "Managerz",
           "text": "See you tomorrow！ Ciao~",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "21": {
+      "dialogueId": 21,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "Oops! You haven't checked all the parts yet~",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "22": {
+      "dialogueId": 22,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "DIRECTOR",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "23": {
+      "dialogueId": 23,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "SleepyAppleKitty",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "24": {
+      "dialogueId": 24,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "biba2012",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "25": {
+      "dialogueId": 25,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "AOI",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "26": {
+      "dialogueId": 26,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "Yi geng",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "27": {
+      "dialogueId": 27,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "Nino",
+          "choices": null
+        }
+      ],
+      "nextDialogueId": 0
+    },
+    "28": {
+      "dialogueId": 28,
+      "lines": [
+        {
+          "type": 2,
+          "speakerName": null,
+          "text": "Xing Ren",
           "choices": null
         }
       ],
