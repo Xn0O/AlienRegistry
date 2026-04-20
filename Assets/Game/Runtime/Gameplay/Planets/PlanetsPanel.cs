@@ -37,10 +37,31 @@ public class PlanetsPanel : UIPanel
     private OpenData currentOpenData;
     private int resolvedCorrectPlanetId = -1;
 
+    // 每次打开面板只允许一次判定
+    private bool hasJudged;
+
     public class OpenData
     {
         public int characterId = -1; // 只传角色ID
     }
+
+    #region 对外判定事件与接口
+    // 对外广播判定结果
+    //参数a=是否正确，参数b=点击的星球ID
+    public static event Action<bool, int> OnPlanetJudgeResult;
+
+    // 外界订阅接口
+    public static void AddJudgeResultListener(Action<bool, int> listener)
+    {
+        OnPlanetJudgeResult += listener;
+    }
+
+    // 外界取消订阅接口
+    public static void RemoveJudgeResultListener(Action<bool, int> listener)
+    {
+        OnPlanetJudgeResult -= listener;
+    }
+    #endregion
 
     public override void OnInit()
     {
@@ -55,6 +76,7 @@ public class PlanetsPanel : UIPanel
         for (int i = 0; i < cards.Count; i++)
         {
             if (cards[i] == null) continue;
+            // PlanetsCard.Clicked 来自 OnPointerClick（鼠标松开后才触发）
             cards[i].Clicked += OnCardClicked;
         }
 
@@ -66,6 +88,10 @@ public class PlanetsPanel : UIPanel
     {
         isClosing = false;
         resolvedCorrectPlanetId = -1;
+
+        // 每次调出面板重置判定流程
+        hasJudged = false;
+        ResetCardsJudgeState();
 
         currentOpenData = data as OpenData;
         LoadPlanets();
@@ -193,6 +219,9 @@ public class PlanetsPanel : UIPanel
             {
                 card.gameObject.SetActive(true);
                 card.Bind(displayPlanets[i]);
+                // 每次开面板重新开始，重置判定
+                card.SetInteractionEnabled(true);
+                card.SetLockedSelected(false);
             }
             else
             {
@@ -215,6 +244,9 @@ public class PlanetsPanel : UIPanel
     #region 点击事件
     private void OnCardClicked(PlanetsCard card, PlanetData data)
     {
+        // 面板只允许判定一次
+        if (hasJudged) return;
+
         if (data == null) return;
         if (resolvedCorrectPlanetId <= 0)
         {
@@ -227,26 +259,67 @@ public class PlanetsPanel : UIPanel
         if (isCorrect)
         {
             Debug.Log($"点击星球: {data.name} (id={data.id})，结果: 正确");
-            TriggerCorrect(); // 点击正确时触发
+            // TriggerCorrect(); // 由外界处理
         }
         else
         {
             Debug.Log($"点击星球: {data.name} (id={data.id})，结果: 错误");
-            TriggerWrong();   // 点击错误时触发
+            // TriggerWrong();   // 由外界处理
+        }
+
+        // 判定后锁定卡片
+        hasJudged = true;
+        LockCardsAfterJudge(card);
+
+        // 向外广播判定结果，外界据此处理计分或关卡流程，会传递点击是否正确和星球id
+        OnPlanetJudgeResult?.Invoke(isCorrect, data.id);
+    }
+
+    // 重置判定状态
+    private void ResetCardsJudgeState()
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            var card = cards[i];
+            if (card == null) continue;
+
+            card.SetInteractionEnabled(true);
+            card.SetLockedSelected(false);
+        }
+    }
+
+    // 固定判定状态
+    private void LockCardsAfterJudge(PlanetsCard selectedCard)
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            var c = cards[i];
+            if (c == null) continue;
+
+            if (c == selectedCard)
+            {
+                c.SetLockedSelected(true);     // 仅已点击卡片保持高亮
+                c.SetInteractionEnabled(false); // 禁止交互避免状态变化
+            }
+            else
+            {
+                c.SetLockedSelected(false);    // 其它卡片不显示 selectPic
+                c.SetInteractionEnabled(false); // 禁止移入显示
+            }
         }
     }
 
     #region 判定处理
-    // 传入外界参数进行相关判定处理
-    private void TriggerCorrect()
-    {
-        // TODO: 正确逻辑
-    }
+    // 传入外界参数进行相关判定处理，可由外界处理
+    // private void TriggerCorrect()
+    // {
+    //     // TODO: 正确逻辑
+    // }
 
-    private void TriggerWrong()
-    {
-        // TODO: 错误逻辑
-    }
+    // private void TriggerWrong()
+    // {
+    //     // TODO: 错误逻辑
+    // }
     #endregion
 
     private void OnClickClose()
